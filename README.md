@@ -1,11 +1,17 @@
-## [titel van jullie game]
-Project team:[jullie namen]
+## Legend of the Holy Grail
+Project team: Roy Dupon, Timo Brandt, Jordi van der Lem, Dajenka van Westen, Julian van het Loo, Tom de Groot en Aitana Bakker
 
 Platform:
-[jullie platfom]
+Windows 10
 
 ### Korte omschrijving van de game
 ...
+Je bent een archeoloog die een clue heeft gevonden naar de holy grail.
+Na het vinden van de locatie van de graal kom je veel obstakels tegen die je op een originele wijze moet overwinnen. 
+
+Er wordt gedacht dat deze graal het eeuwige leven weet te schenken. En daarom is het dus essentieel dat je de graal niet in de verkeerde handen laat vallen.
+
+Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de tempels wordt tegengewerkt. Ook zullen er enkele vijanden zijn die ook heel erg graag die graal willen hebben, hierdoor zul je vijanden op je eigen manier moeten weten te verslaan of vermijden.
 
 ---
 #### Producten Werkproces 1
