@@ -5,7 +5,6 @@ Platform:
 Windows 10
 
 ### Korte omschrijving van de game
----
 Je bent een archeoloog die een clue heeft gevonden naar de holy grail.
 Na het vinden van de locatie van de graal kom je veel obstakels tegen die je op een originele wijze moet overwinnen. 
 
