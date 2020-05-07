@@ -19,7 +19,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | ------ |  ------ |
 | Link naar online product backlog (Trello) | [Backlog](https://trello.com/b/teHwVxv4)
 | Logboek (pdf)                             | [Logboek]()
-| Game concept doc (pdf)                    | [GameDesignDoc]()
+| Game concept doc (pdf)                    | [GameDesignDoc](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/GameDesignDoc.pdf)
 |<img width=500/>|<img width=300/>|
    
 #### Producten Werkproces 2
