@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class checkTrapTrigger : MonoBehaviour
+public class CheckTrapTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

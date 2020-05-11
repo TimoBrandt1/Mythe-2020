@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rock : MonoBehaviour
+public class Rock : MonoBehaviour
 {
+    [SerializeField] private float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,10 @@ public class rock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += transform.forward * Time.deltaTime *speed;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        this.enabled = false;
     }
 }
