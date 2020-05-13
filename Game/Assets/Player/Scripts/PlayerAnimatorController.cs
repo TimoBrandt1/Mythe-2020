@@ -18,7 +18,7 @@ public class PlayerAnimatorController : MonoBehaviour
     void Update()
     {
         _speed = _playerMove.GetVelocity();
-        Debug.Log(_speed);
+        //Debug.Log(_speed);
         _anim.SetFloat("Velocity", _speed);
     }
 }

@@ -32,7 +32,16 @@ public class playerMove : MonoBehaviour
         //zet de rigidbody content gelijk aan de vel vector
         vel.y = _rigidbody.velocity.y;
         _rigidbody.velocity = vel;
- 
+        Debug.Log(_rigidbody.velocity);
+        if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, 14f);
+        }
+        else
+        {
+            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, 20f);
+        }
+
         move = transform.InverseTransformDirection(move);
         CheckGroundStatus();
         move = Vector3.ProjectOnPlane(move, _groundNormal);
