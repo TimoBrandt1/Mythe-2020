@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckTrapTrigger : MonoBehaviour
+public class TileChecker : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "deathTile")
         {
-            GameObject.Find("SpawnPoints").GetComponent<RockShooting>().StartCoroutine(SpawnRocks());
+            //GameObject.Find("SpawnPoints").GetComponent<RockShooting>().StartCoroutine(SpawnRocks());
         }
     }
 }
