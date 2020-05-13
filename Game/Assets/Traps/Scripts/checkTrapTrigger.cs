@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class CheckTrapTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.tag == "deathTile")
+        {
+            GameObject.Find("SpawnPoints").GetComponent<RockShooting>().StartCoroutine(SpawnRocks());
+        }
     }
 }
