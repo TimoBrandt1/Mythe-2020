@@ -37,6 +37,8 @@ public class ThirdPersonCharacterControl : MonoBehaviour
             _move = vertical * _camForward + horizontal * _mainCam.right;
         }
 
+        if (Input.GetKey(KeyCode.LeftShift)) _move *= 1.5f;
+
         _player.Move(_move, _jump);
         _jump = false;
     }
