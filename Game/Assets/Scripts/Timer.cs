@@ -18,12 +18,13 @@ public class Timer : MonoBehaviour
     {
         if (timerCallback != null)
         {
-            if (timer > 0f)
+            if (timer >= 0f)
             {
                 timer -= Time.deltaTime;
                 if (IsTimerComplete())
                 {
                     timerCallback();
+                    timerCallback = null;
                 }
 
             }

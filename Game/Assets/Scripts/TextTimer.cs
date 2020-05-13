@@ -7,11 +7,17 @@ public class TextTimer : MonoBehaviour
 {
     [SerializeField] private Timer timer;
     private float remTime;
-    public Text timerText;
+    [SerializeField] private Text timerText;
     private string stdTime;
     private bool counting = true;
-    [SerializeField]private float waitingTime = 5f;
+    private string displaytext;
+    private Color displayColor;
+    private int ResetTimer = 2;
 
+    private void Start()
+    {
+        timerText = GetComponent<Text>();
+    }
 
     private void Update()
     {
@@ -22,18 +28,27 @@ public class TextTimer : MonoBehaviour
         }
     }
 
-    public void StartTimer()
+    public void StartTimer(float aValue,string aText, Color aColor)
     {
-        timer.SetTimer(waitingTime, () => TimerComplete());  
+        displayColor = aColor;
+        displaytext = aText;
+        timer.SetTimer(aValue, () => TimerComplete());  
     }
-
-
 
     public void TimerComplete()
     {
-        timerText.color = Color.red;
+        timerText.color = displayColor;
         timerText.fontSize = 70;
-        timerText.text = "JE BENT GAYYYYYYYY";
+        timerText.text = displaytext;
         Debug.Log("timer complete");
+        StartCoroutine(resetText());
     }
+
+    IEnumerator resetText()
+    {
+        yield return new WaitForSeconds(ResetTimer);
+        timerText.text = null;
+
+    }
+    
 }
