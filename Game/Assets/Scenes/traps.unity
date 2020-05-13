@@ -322,7 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 1924758789}
-  speed: 0.2
+  forwardSpeed: 0.1
+  backwardSpeed: 0.01
 --- !u!54 &5558973
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8779,7 +8780,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cbcb0a8a28a1e8049b0d67e2c2807a24, type: 2}
+  - {fileID: 2100000, guid: 510d5df0577f6eb4f885d43e354e7e28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9822,7 +9823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 1924758789}
-  speed: 0.2
+  forwardSpeed: 0.1
+  backwardSpeed: 0.01
 --- !u!54 &2057895634
 Rigidbody:
   m_ObjectHideFlags: 0

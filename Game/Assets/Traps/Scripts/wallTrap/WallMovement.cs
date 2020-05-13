@@ -4,34 +4,50 @@ using UnityEngine;
 
 public class WallMovement : MonoBehaviour
 {
+    //The emty gameobject where the wall moves to
     [SerializeField] private Transform destination;
-    [SerializeField] private float speed;
+
+    //Floats were you can set the speed of the wall moving back and forward
+    [SerializeField] private float forwardSpeed;
+    [SerializeField] private float backwardSpeed;
+
     private Vector3 startPos;
-    
-    // Start is called before the first frame update
+    private bool touched = false;
+
     void Start()
     {
+        //Sets the startposition of the wall
         startPos = transform.position;
-        WallMove();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        WallMove();
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "CrushWall")
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPos, speed);
+            touched = true;
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            //Deal Damage To Player
         }
     }
     private void WallMove()
     {
-        while (transform.position.x != destination.position.x -5)
+        if (touched == false)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination.position, speed);
+            transform.position = Vector3.MoveTowards(transform.position, destination.position, forwardSpeed);
+        }
+        if (touched == true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPos, backwardSpeed);
+            if (transform.position == startPos)
+            {
+                touched = false;
+            }
         }
     }
 }
