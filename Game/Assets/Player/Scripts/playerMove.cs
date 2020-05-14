@@ -41,11 +41,8 @@ public class playerMove : MonoBehaviour
         //zet de rigidbody content gelijk aan de vel vector
         vel.y = _rigidbody.velocity.y;
         _rigidbody.velocity = vel;
-<<<<<<< HEAD
         //Debug.Log(_rigidbody.velocity);
-=======
 
->>>>>>> PlayerMovement
         if (!Input.GetKey(KeyCode.LeftShift))
         {
             _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, 14f);
