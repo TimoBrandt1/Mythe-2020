@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class TileChecker : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    //Get first 3 tiles that have been walked on and make it the partern
+    private int[] startPatern;
+    private int[] walkPatern;
+
+    private void Start()
     {
-        if (collision.gameObject.tag == "deathTile")
-        {
-            //GameObject.Find("SpawnPoints").GetComponent<RockShooting>().StartCoroutine(SpawnRocks());
-        }
+        
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    private void ComparePatern()
+    {
+        //compare the start patern with the walk patern
     }
 }

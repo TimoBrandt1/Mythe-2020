@@ -3306,7 +3306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522067078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.72, z: 0}
+  m_LocalPosition: {x: -3.5, y: 0.5, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 463352865}
@@ -3325,8 +3325,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabTiles:
-  - {fileID: 2086082489887652612, guid: e975354c134d8704dab51c2ee7bc54a9, type: 3}
   - {fileID: 6555057731184715409, guid: 6b00328d8dcbeb34088d6f3cd556b5dd, type: 3}
+  - {fileID: 2086082489887652612, guid: e975354c134d8704dab51c2ee7bc54a9, type: 3}
+  - {fileID: 946634982102461040, guid: da88b5f6af8694b4b8cd20fdd56c2d03, type: 3}
+  gridX: 5
+  gridZ: 8
+  gridSpacingOffset: 1.75
 --- !u!1 &535851551
 GameObject:
   m_ObjectHideFlags: 0

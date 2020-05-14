@@ -5,38 +5,31 @@ using UnityEngine;
 public class TileGeneration : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabTiles;
-    enum Tiles
-    {
-        COW,
-        PIG,
-        SHEEP,
-        DEATH
-    }
-    // Start is called before the first frame update
+    [SerializeField] private int gridX;
+    [SerializeField] private int gridZ;
+    [SerializeField] private float gridSpacingOffset = 1f;
+    private Vector3 spawnPos;
     void Start()
     {
-        int[,] intMap;
-        intMap = new int[,]{
-            {0, 0, 0, 0},
-            {1, 1, 1, 1 }
-        };
-        for (int i = 0; i < intMap.Length; i++)
+        spawnPos = transform.position;
+        SpawnTiles();
+    }
+
+    private void SpawnTiles()
+    {
+        for (int x = 0; x < gridX; x++)
         {
-            for (int j = 0; j < intMap.Length; j++)
+            for (int z = 0; z < gridZ; z++)
             {
-                GameObject aTile = Instantiate(prefabTiles[intMap[i, j]]);
-                aTile.transform.position = new Vector3(
-                    (aTile.GetComponent<Renderer>().bounds.size.x / 2) * i,
-                    0,
-                    (aTile.GetComponent<Renderer>().bounds.size.z / 2) * j
-                    );
+                Vector3 spawnPosition = new Vector3(x * gridSpacingOffset, 0, z * gridSpacingOffset) + spawnPos;
+                PickAndSpawn(spawnPosition, Quaternion.identity);
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void PickAndSpawn(Vector3 postionToSpawn, Quaternion rotationToSpawn)
     {
-        
+        int randomIndex = Random.Range(0, prefabTiles.Length);
+        GameObject clone = Instantiate(prefabTiles[randomIndex], postionToSpawn, rotationToSpawn);
+        clone.transform.SetParent(gameObject.transform);
     }
 }
