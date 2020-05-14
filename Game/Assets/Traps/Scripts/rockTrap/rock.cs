@@ -19,6 +19,13 @@ public class Rock : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        this.enabled = false;
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(10);
+        }
+        else
+{
+            this.enabled = false;
+        }
     }
 }
