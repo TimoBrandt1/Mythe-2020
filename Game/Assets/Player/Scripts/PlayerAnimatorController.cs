@@ -19,6 +19,7 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         _speed = _playerMove.GetVelocity();
         //Debug.Log(_speed);
-        _anim.SetFloat("Velocity", _speed);
+        _anim.SetFloat("Forward", _speed, 0.1f, Time.deltaTime);
+
     }
 }
