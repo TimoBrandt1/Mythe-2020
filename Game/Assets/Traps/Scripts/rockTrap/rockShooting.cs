@@ -8,6 +8,8 @@ public class RockShooting : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float Timer = 0.001f;
 
+    public void TrapTriggerd() { StartCoroutine(SpawnRocks()); Debug.Log("wratt"); }
+
     private IEnumerator SpawnRocks()
     {
         Instantiate(rock, spawnPoints[0]);

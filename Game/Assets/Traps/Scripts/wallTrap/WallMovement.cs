@@ -32,7 +32,7 @@ public class WallMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            //Deal Damage To Player
+            collision.gameObject.GetComponent<Health>().TakeDamage(50);
         }
     }
     private void WallMove()
