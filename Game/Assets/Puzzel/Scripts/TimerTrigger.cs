@@ -9,7 +9,7 @@ public class TimerTrigger : PressurPlate
     [SerializeField] private GameObject Deur;
     [SerializeField] private Timer actionOnTimer;
     [SerializeField] private TextTimer textTimer;
-
+    private void OnTriggerEnter(Collider other){}
     private void OnTriggerExit(Collider other)
     {
         if (canMove == true)
