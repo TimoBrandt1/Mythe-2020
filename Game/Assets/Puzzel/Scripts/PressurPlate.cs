@@ -7,19 +7,24 @@ public class PressurPlate : MonoBehaviour
     private Renderer render;
     [SerializeField] protected GameObject trigger;
     private float moveInt;
-    private Color m_oldColor = Color.red;
-    [SerializeField] protected bool canMove;
+    private Color m_oldColor;
+    public bool kut = false; 
+    
 
     private void Start()
     {
+        trigger = GetComponent<GameObject>();
         render = GetComponent<Renderer>();
         m_oldColor = render.material.color;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (canMove == true)
+        if (kut) return;
+        else
         {
-            Debug.Log("2");
+            kut = true;
+            Debug.Log(other.gameObject.name);
+            Debug.Log("Naar beneden");
             moveInt = -0.01f;
             StartCoroutine(MovePressurplate());
             render.material.color = Color.green;
@@ -27,15 +32,10 @@ public class PressurPlate : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (canMove == true)
-        {
-            Debug.Log("4");
+            Debug.Log("Naar Boven");
             moveInt = 0.01f;
             StartCoroutine(MovePressurplate());
-            render.material.color = m_oldColor;
-            
-        }
-        canMove = false;
+            this.render.material.color = m_oldColor;
     }
 
     IEnumerator MovePressurplate()

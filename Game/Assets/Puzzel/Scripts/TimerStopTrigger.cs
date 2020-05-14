@@ -9,6 +9,7 @@ public class TimerStopTrigger : PressurPlate
     [SerializeField] private GameObject Deur;
     [SerializeField] private Timer actionOnTimer;
     [SerializeField] private TextTimer textTimer;
+    private bool canMove = true;
 
     private void Start()
     {
@@ -23,4 +24,5 @@ public class TimerStopTrigger : PressurPlate
             Deur.SetActive(true);
         }
     }
+
 }
