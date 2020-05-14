@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2086082489887652615}
   - component: {fileID: 2086082489887652614}
   m_Layer: 0
-  m_Name: save
+  m_Name: pig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55cc2b6cef3c2da45b8f92e9a23d2cb0, type: 2}
+  - {fileID: 2100000, guid: f3973aa33b4da6b449d5912c8f9d19fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

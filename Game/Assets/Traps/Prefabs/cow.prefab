@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6555057731184715420}
   - component: {fileID: 6555057731184715411}
   m_Layer: 0
-  m_Name: death
+  m_Name: cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f3973aa33b4da6b449d5912c8f9d19fb, type: 2}
+  - {fileID: 2100000, guid: 2d1fde2bcb98b294c80d4e1f3aa410e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
