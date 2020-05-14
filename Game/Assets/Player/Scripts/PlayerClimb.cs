@@ -25,7 +25,9 @@ public class PlayerClimb : MonoBehaviour
     void Update()
     {
         FindClosestEnemy();
-        dist = Vector3.Distance(ledge1.transform.position, transform.position);
+
+        Vector3 closestPoint = ledge1.GetComponent<BoxCollider>().ClosestPointOnBounds(this.transform.position);
+        dist = Vector3.Distance(closestPoint, transform.position);
         if (dist < 5 && Input.GetKey(KeyCode.Space))
         {
                 setFirstPos();
@@ -84,7 +86,7 @@ public class PlayerClimb : MonoBehaviour
         {
             Vector3 closestPoint = ledge1.GetComponent<BoxCollider>().ClosestPointOnBounds(this.transform.position);
             transform.position = closestPoint;
-           // transform.position = new Vector3(ledge1.transform.position.x, ledge1.transform.position.y, ledge1.transform.position.z);
+            // transform.position = new Vector3(ledge1.transform.position.x, ledge1.transform.position.y, ledge1.transform.position.z);
             grabStart = false;
         }
     }

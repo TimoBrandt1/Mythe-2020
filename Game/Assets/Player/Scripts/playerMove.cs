@@ -41,7 +41,6 @@ public class playerMove : MonoBehaviour
         //zet de rigidbody content gelijk aan de vel vector
         vel.y = _rigidbody.velocity.y;
         _rigidbody.velocity = vel;
-        //Debug.Log(_rigidbody.velocity);
 
         if (!Input.GetKey(KeyCode.LeftShift))
         {
