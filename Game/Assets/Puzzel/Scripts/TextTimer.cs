@@ -12,11 +12,12 @@ public class TextTimer : MonoBehaviour
     private bool counting = true;
     private string displaytext;
     private Color displayColor;
-    private int ResetTimer = 2;
+    private float ResetTimer = 2;
 
     private void Start()
     {
         timerText = GetComponent<Text>();
+        timerText.color = Color.cyan;
     }
 
     private void Update()
@@ -35,6 +36,13 @@ public class TextTimer : MonoBehaviour
         timer.SetTimer(aValue, () => TimerComplete());  
     }
 
+    public void SetText(string aText, float aResetTimer)
+    {
+        timerText.text = aText;
+        ResetTimer = aResetTimer;
+        timer.SetTimer(0, () => StartCoroutine(resetText()));
+    }
+
     public void TimerComplete()
     {
         timerText.color = displayColor;
@@ -46,6 +54,7 @@ public class TextTimer : MonoBehaviour
 
     IEnumerator resetText()
     {
+        timerText.color = Color.cyan;
         yield return new WaitForSeconds(ResetTimer);
         timerText.text = null;
 

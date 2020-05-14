@@ -24,5 +24,6 @@ public class TimerStopTrigger : PressurPlate
             Deur.SetActive(true);
         }
     }
+    private void OnTriggerExit(Collider other){}
 
 }

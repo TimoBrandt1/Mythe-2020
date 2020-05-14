@@ -6,10 +6,15 @@ using UnityEngine;
 public class TimerTrigger : PressurPlate
 {
     [SerializeField] private float timing =5f;
-    [SerializeField] private GameObject Deur;
+    [SerializeField] private Rigidbody Deur;
     [SerializeField] private Timer actionOnTimer;
     [SerializeField] private TextTimer textTimer;
     private bool canMove = true;
+
+    private void Start()
+    {
+
+    }
     private void OnTriggerEnter(Collider other){}
 
     private void OnTriggerExit(Collider other)
@@ -18,7 +23,7 @@ public class TimerTrigger : PressurPlate
         {
             canMove = false;
             textTimer.StartTimer(timing,"je hebt gefaald",Color.red);
-            Deur.SetActive(true);
+            Deur.useGravity = true;
         }
     }
 }
