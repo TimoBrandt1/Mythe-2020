@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour
+public class Stone : MonoBehaviour
 {
     [SerializeField] private float speed;
     Vector3 temp;
@@ -16,13 +15,13 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * Time.deltaTime *speed;
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(10);
+            collision.gameObject.GetComponent<Health>().TakeDamage(50);
         }
         else
         {

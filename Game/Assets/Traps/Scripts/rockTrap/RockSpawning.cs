@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockShooting : MonoBehaviour
+public class RockSpawning : MonoBehaviour
 {
     [SerializeField] private GameObject rock;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float Timer = 0.001f;
 
-    public void TrapTriggerd() { StartCoroutine(SpawnRocks()); Debug.Log("wratt"); }
+    public void TrapTriggerd() { StartCoroutine(SpawnRocks()); }
 
     private IEnumerator SpawnRocks()
     {

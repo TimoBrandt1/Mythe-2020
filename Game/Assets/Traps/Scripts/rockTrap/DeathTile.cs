@@ -8,7 +8,7 @@ public class DeathTile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameObject.Find("SpawnPoints").GetComponent<RockShooting>().TrapTriggerd();
+            GameObject.Find("SpawnPoints").GetComponent<RockSpawning>().TrapTriggerd();
         }
     }
 }
