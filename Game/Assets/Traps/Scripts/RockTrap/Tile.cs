@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathTile : MonoBehaviour
+public class Tile : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameObject.Find("SpawnPoints").GetComponent<RockSpawning>().TrapTriggerd();
+            //Scream Tile Type to TileChecker
         }
     }
 }
