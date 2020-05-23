@@ -27,6 +27,7 @@ public class PlayerClimb : MonoBehaviour
     void Update()
     {
         FindClosestEnemy();
+        FindSecondClosestEnemy();
         dist = Vector3.Distance(ledge1.transform.position, transform.position);
         if (dist < 5 && Input.GetKey(KeyCode.Space))
         {
@@ -61,7 +62,7 @@ public class PlayerClimb : MonoBehaviour
 
     void FindClosestEnemy()
     {
-        jumped = false;
+        
         float distanceToClosestEnemy = Mathf.Infinity;
         Ledge closestEnemy = null;
         allEnemies = GameObject.FindObjectsOfType<Ledge>();
@@ -71,20 +72,34 @@ public class PlayerClimb : MonoBehaviour
             Vector3 closestPoint = currentEnemy.GetComponent<BoxCollider>().ClosestPointOnBounds(this.transform.position);
             Debug.DrawLine(this.transform.position, closestPoint);
             float distanceToEnemy = (closestPoint - this.transform.position).sqrMagnitude;
-            Debug.Log(distanceToEnemy);
+
             if (distanceToEnemy < distanceToClosestEnemy && jumped == false)
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
                 ledge1 = currentEnemy.gameObject;
             }
+        }
+    }
 
-            if (distanceToEnemy < 5f && distanceToEnemy > distanceToClosestEnemy && Input.GetKey(KeyCode.Tab))
+    void FindSecondClosestEnemy()
+    {
+        float distanceToClosestEnemy = Mathf.Infinity;
+        Ledge closestEnemy = null;
+        Ledge[] allEnemies2 = GameObject.FindObjectsOfType<Ledge>();
+
+        foreach (Ledge currentEnemy in allEnemies2)
+        {
+            Vector3 closestPoint = currentEnemy.GetComponent<BoxCollider>().ClosestPointOnBounds(this.transform.position);
+            Debug.DrawLine(this.transform.position, closestPoint);
+            float distanceToEnemy = (closestPoint - this.transform.position).sqrMagnitude;
+
+            if (distanceToEnemy > 1f && distanceToEnemy < 12f && Input.GetKey(KeyCode.Tab) && jumped == false)
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
-                jumped = true;
                 ledge1 = currentEnemy.gameObject;
+                StartCoroutine(jumpTimer());
             }
         }
     }
@@ -95,8 +110,15 @@ public class PlayerClimb : MonoBehaviour
         {
             Vector3 closestPoint = ledge1.GetComponent<BoxCollider>().ClosestPointOnBounds(this.transform.position);
             transform.position = closestPoint;
-           // transform.position = new Vector3(ledge1.transform.position.x, ledge1.transform.position.y, ledge1.transform.position.z);
+            //transform.position = new Vector3(ledge1.transform.position.x, ledge1.transform.position.y, ledge1.transform.position.z);
             grabStart = false;
         }
+    }
+
+    IEnumerator jumpTimer()
+    {
+        jumped = true;
+        yield return new WaitForSeconds(0.5f);
+        jumped = false;
     }
 }
