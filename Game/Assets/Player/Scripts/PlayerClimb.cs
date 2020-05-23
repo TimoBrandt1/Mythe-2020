@@ -14,6 +14,8 @@ public class PlayerClimb : MonoBehaviour
     private float dist;
     private bool grabStart = true;
 
+    private Ledge[] allEnemies;
+    public bool jumped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,6 @@ public class PlayerClimb : MonoBehaviour
                 {
                     transform.position -= transform.right * Time.deltaTime;
                 }
-            
 
             onPlayerClimb();
             GetComponent<playerMove>().enabled = false;
@@ -60,22 +61,32 @@ public class PlayerClimb : MonoBehaviour
 
     void FindClosestEnemy()
     {
+        jumped = false;
         float distanceToClosestEnemy = Mathf.Infinity;
         Ledge closestEnemy = null;
-        Ledge[] allEnemies = GameObject.FindObjectsOfType<Ledge>();
+        allEnemies = GameObject.FindObjectsOfType<Ledge>();
 
         foreach (Ledge currentEnemy in allEnemies)
         {
-            float distanceToEnemy = (currentEnemy.transform.position - this.transform.position).sqrMagnitude;
-            if (distanceToEnemy < distanceToClosestEnemy)
+            Vector3 closestPoint = currentEnemy.GetComponent<BoxCollider>().ClosestPointOnBounds(this.transform.position);
+            Debug.DrawLine(this.transform.position, closestPoint);
+            float distanceToEnemy = (closestPoint - this.transform.position).sqrMagnitude;
+            Debug.Log(distanceToEnemy);
+            if (distanceToEnemy < distanceToClosestEnemy && jumped == false)
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
                 ledge1 = currentEnemy.gameObject;
             }
-        }
 
-        Debug.DrawLine(this.transform.position, closestEnemy.transform.position);
+            if (distanceToEnemy < 5f && distanceToEnemy > distanceToClosestEnemy && Input.GetKey(KeyCode.Tab))
+            {
+                distanceToClosestEnemy = distanceToEnemy;
+                closestEnemy = currentEnemy;
+                jumped = true;
+                ledge1 = currentEnemy.gameObject;
+            }
+        }
     }
 
     public void setFirstPos()
