@@ -24,7 +24,7 @@ public class TileChecker : MonoBehaviour
     private void CheckLists()
     {
 
-        if (ListEquals(startPatern, walkPatern))
+        if (ListEquals(walkPatern, startPatern))
         {
             Debug.Log("List 1 is the same as list 2");
             
@@ -38,12 +38,11 @@ public class TileChecker : MonoBehaviour
 
     private void CheckWalkPaternSize()
     {
-        if (walkPatern.Count == 3)
+        if (walkPatern.Count == 1)
         {
             CheckLists();
-            walkPatern.Clear();
         }
-        if (walkPatern.Count > 3)
+        if (walkPatern.Count == 3)
         {
             walkPatern.Clear();
         }
