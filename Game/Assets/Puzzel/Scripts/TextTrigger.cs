@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class TextTrigger : PressurPlate
 {
-    [SerializeField] private float resetTiming = 10f;
-    [SerializeField] private Timer actionOnTimer;
-    [SerializeField] private TextTimer textTimer;
-    [SerializeField] private string aInputText;
-    [SerializeField] private bool canText = true;
+    [SerializeField] private bool canSetText;
+    [SerializeField] private UI_Assistant ui_Assistant;
+    private void Start()
+    {
+        canSetText = true;
+        ui_Assistant = GameObject.Find("UI_Assistant").GetComponent<UI_Assistant>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (canText == true)
+        if (canSetText)
         {
-            canText = false;
-            textTimer.SetText(aInputText, resetTiming);
+            ui_Assistant.Awake();
         }
     }
-    private void OnTriggerExit(Collider other){}
+    private void OnTriggerExit(Collider other){ canSetText = false;}
 }
