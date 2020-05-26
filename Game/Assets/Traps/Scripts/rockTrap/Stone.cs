@@ -6,11 +6,7 @@ public class Stone : MonoBehaviour
 {
     [SerializeField] private float speed;
     Vector3 temp;
-    float t = 10;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    private float destroyScale = 0.3f;
 
     // Update is called once per frame
     void Update()
@@ -40,7 +36,7 @@ public class Stone : MonoBehaviour
         temp.z -= 100 * Time.deltaTime;
 
         transform.localScale = temp;
-        if (transform.localScale == new Vector3(0f, 0f, 0f))
+        if (transform.localScale == new Vector3(destroyScale, destroyScale, destroyScale))
         {
             Destroy(gameObject);
         }

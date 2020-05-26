@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class TileChecker : MonoBehaviour
 {
-    private List<string> startPatern = new List<string>();
+    private List<string> startPatern = new List<string>(new string[] { "Cow", "Pig", "Sheep" });
     public List<string> walkPatern = new List<string>();
-
-    
-
-    private void Start()
-    {
-        startPatern.Add("Cow");
-        startPatern.Add("Pig");
-        startPatern.Add("Sheep");
-    }
 
     private void Update()
     {
@@ -26,12 +17,11 @@ public class TileChecker : MonoBehaviour
 
         if (ListEquals(walkPatern, startPatern))
         {
-            Debug.Log("List 1 is the same as list 2");
-            
+            //Lists are the same nothing will hapen
         }
         else
         {
-            Debug.Log("List 1 does not equal list 2");
+            //List are not the same you the trap will be triggerd
             GameObject.Find("SpawnPoints").GetComponent<RockSpawning>().TrapTriggerd();
         }
     }
@@ -42,7 +32,7 @@ public class TileChecker : MonoBehaviour
         {
             CheckLists();
         }
-        if (walkPatern.Count == 3)
+        else if (walkPatern.Count == 3)
         {
             walkPatern.Clear();
         }
