@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 20;
     Vector3 temp;
     private float destroyScale = 0.3f;
     private string playerTag = "Player";
     // Update is called once per frame
+
+    private void OnEnable()
+    {
+        if (speed == 0)
+        {
+            speed = 20;
+        }
+        Invoke("Disable", 1f);
+    }
+
     void Update()
     {
         transform.position += transform.forward * Time.deltaTime * speed;
@@ -22,23 +32,26 @@ public class Stone : MonoBehaviour
         else
         {
             speed = 0;
-            Shrink();
+            //Shrink();
         }
     }
 
-    private void Shrink()
+    //private void shrink()
+    //{
+    //    temp = transform.localscale;
+
+    //    temp.x -= 100 * time.deltatime;
+    //    temp.y -= 100 * time.deltatime;
+    //    temp.z -= 100 * time.deltatime;
+
+    //    transform.localscale = temp;
+    //    if (transform.localscale == new vector3(destroyscale, destroyscale, destroyscale))
+    //    {
+    //        destroy(gameobject);
+    //    }
+    //}
+    private void Disable()
     {
-        Debug.Log(transform.localScale);
-        temp = transform.localScale;
-
-        temp.x -= 100 * Time.deltaTime;
-        temp.y -= 100 * Time.deltaTime;
-        temp.z -= 100 * Time.deltaTime;
-
-        transform.localScale = temp;
-        if (transform.localScale == new Vector3(destroyScale, destroyScale, destroyScale))
-        {
-            Destroy(gameObject);
-        }
+        gameObject.SetActive(false);
     }
 }

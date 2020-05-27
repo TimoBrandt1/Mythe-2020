@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RockSpawning : MonoBehaviour
 {
-    [SerializeField] private GameObject rock;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float Timer = 0.001f;
     private bool canBeTriggerd = true;
@@ -20,16 +19,19 @@ public class RockSpawning : MonoBehaviour
 
     private IEnumerator SpawnRocks()
     {
-        Instantiate(rock, spawnPoints[0]);
-        Instantiate(rock, spawnPoints[2]);
-        Instantiate(rock, spawnPoints[5]);
-        Instantiate(rock, spawnPoints[7]);
-        yield return new WaitForSeconds(Timer);
-        Instantiate(rock, spawnPoints[1]);
-        Instantiate(rock, spawnPoints[3]);
-        Instantiate(rock, spawnPoints[4]);
-        Instantiate(rock, spawnPoints[6]);
-        yield return new WaitForSeconds(Timer);
+        GameObject obj = ObjectPooler.current.GetPooledObject();
+        if (obj == null) yield return null;
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            obj.transform.position = spawnPoints[i].position;
+            obj.transform.rotation = spawnPoints[i].rotation;
+            obj.SetActive(true);
+            if (i == 4 || i == 8)
+            {
+                yield return new WaitForSeconds(Timer);
+            }
+        }
         StartCoroutine(SpawnRocks());
     }
 }
