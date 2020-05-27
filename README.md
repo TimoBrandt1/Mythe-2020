@@ -17,7 +17,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | Product  | Link |
 | ------ |  ------ |
 | Link naar online product backlog (Trello) | [Backlog](https://trello.com/b/teHwVxv4)
-| Logboek (pdf)                             | [Logboek]()
+| Logboek (pdf)                             | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Game concept doc (pdf)                    | [GameDesignDoc](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/GameDesignDoc.pdf)
 |<img width=500/>|<img width=300/>|
    
@@ -26,7 +26,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | ------ |  ------ |
 | Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog](https://trello.com/b/teHwVxv4)
 | Sprint retrospective verslagen (pdf)                      | [RetrospectiveVerslagen]()
-| Logboek (pdf)                                             | [Logboek]()
+| Logboek (pdf)                                             | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Opnames sprint retrospectives (Teams opnames)             | [Folder op teams]()
 | Opnames standups (Teams opnames)                          | [Folder op teams]()
 |<img width=500/>|<img width=300/>|
@@ -37,7 +37,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | Sprint retrospective verslagen (pdf)  | [RetrospectiveVerslagen]()
 | Sprint review verslagen (pdf)         | [ReviewVerslagen]()
 | Link naar online speelbaar prototype  | [Prototype]()
-| Logboek (pdf)                         | [Logboek]()
+| Logboek (pdf)                         | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Asset planning (pdf)                  | [AssetPlanning]()
 |<img width=500/>|<img width=300/>|
 
