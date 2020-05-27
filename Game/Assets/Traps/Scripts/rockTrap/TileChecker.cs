@@ -17,24 +17,24 @@ public class TileChecker : MonoBehaviour
 
         if (ListEquals(walkPatern, startPatern))
         {
-            //Lists are the same nothing will hapen
+            //Lists are the same nothing will hapen.
         }
         else
         {
-            //List are not the same you the trap will be triggerd
+            //List are not the same, the trap will be triggerd.
             GameObject.Find("SpawnPoints").GetComponent<RockSpawning>().TrapTriggerd();
         }
     }
 
     private void CheckWalkPaternSize()
     {
-        if (walkPatern.Count == 1)
+        for (int i = 0; i < walkPatern.Count; i++)
         {
             CheckLists();
-        }
-        else if (walkPatern.Count == 3)
-        {
-            walkPatern.Clear();
+            if (walkPatern.Count == 3)
+            {
+                walkPatern.Clear();
+            }
         }
     }
 

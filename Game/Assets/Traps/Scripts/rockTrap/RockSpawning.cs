@@ -7,8 +7,16 @@ public class RockSpawning : MonoBehaviour
     [SerializeField] private GameObject rock;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float Timer = 0.001f;
+    private bool canBeTriggerd = true;
 
-    public void TrapTriggerd() { StartCoroutine(SpawnRocks()); }
+    public void TrapTriggerd()
+    {
+        if (canBeTriggerd)
+        {
+            StartCoroutine(SpawnRocks());
+            canBeTriggerd = false;
+        }
+    }
 
     private IEnumerator SpawnRocks()
     {

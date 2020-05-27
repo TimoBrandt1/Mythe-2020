@@ -7,7 +7,7 @@ public class Stone : MonoBehaviour
     [SerializeField] private float speed;
     Vector3 temp;
     private float destroyScale = 0.3f;
-
+    private string playerTag = "Player";
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +15,7 @@ public class Stone : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == playerTag)
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(50);
         }
