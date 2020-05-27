@@ -18502,7 +18502,7 @@ MonoBehaviour:
   pooledObject: {fileID: 8210285910222904572, guid: b5738b406cd60e94bbee330f53ec9bb7,
     type: 3}
   pooledAmount: 8
-  canGrow: 0
+  canGrow: 1
 --- !u!1 &554579032
 GameObject:
   m_ObjectHideFlags: 0
