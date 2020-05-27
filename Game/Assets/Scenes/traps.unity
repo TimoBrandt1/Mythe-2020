@@ -47811,6 +47811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acefb336bab076244a53c48f71f90a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rock: {fileID: 8210285910222904572, guid: b5738b406cd60e94bbee330f53ec9bb7, type: 3}
   spawnPoints:
   - {fileID: 2080908163}
   - {fileID: 2027223881}
