@@ -17,7 +17,6 @@ public class TextTimer : MonoBehaviour
     private void Start()
     {
         timerText = GetComponent<Text>();
-        timerText.color = Color.cyan;
     }
 
     private void Update()
