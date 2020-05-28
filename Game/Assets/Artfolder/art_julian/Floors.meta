@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Game/Assets/Standard Assets.meta
 guid: bba912c86aa2eda4990623721e2663d4
 =======
 guid: ad8b3654539c5b04a964c0462dc117d0
 >>>>>>> Art:Game/Assets/Artfolder/art_julian/Floors.meta
+=======
+guid: ad8b3654539c5b04a964c0462dc117d0
+>>>>>>> traps
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

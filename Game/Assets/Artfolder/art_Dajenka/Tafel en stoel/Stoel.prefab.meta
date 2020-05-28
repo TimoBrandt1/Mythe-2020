@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Game/Assets/Standard Assets.meta
+guid: 939f0d069a38f7a478f254feeeda01e9
+folderAsset: yes
+DefaultImporter:
+=======
 guid: 968670dad09e95148a00123388c55e8f
 PrefabImporter:
+>>>>>>> Art:Game/Assets/Artfolder/art_Dajenka/Stoel.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

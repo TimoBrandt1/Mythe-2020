@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Game/Assets/Player/Scripts/Animator.meta
+guid: c9248859dcafb9b4f9ad78e54922efa8
+folderAsset: yes
+DefaultImporter:
+=======
 guid: c44117601e6073542ab894a83a29f80b
 PrefabImporter:
+>>>>>>> Art:Game/Assets/Artfolder/art_Dajenka/Cube (3).prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

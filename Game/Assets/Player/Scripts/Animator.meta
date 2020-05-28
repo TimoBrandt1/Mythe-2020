@@ -1,7 +1,18 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 50ec05d886783bc4cbe65f20de5e12ab
 folderAsset: yes
 DefaultImporter:
+=======
+<<<<<<< HEAD:Game/Assets/Player/Scripts/Animator.meta
+guid: 50ec05d886783bc4cbe65f20de5e12ab
+folderAsset: yes
+DefaultImporter:
+=======
+guid: c44117601e6073542ab894a83a29f80b
+PrefabImporter:
+>>>>>>> Art:Game/Assets/Artfolder/art_Dajenka/Cube (3).prefab.meta
+>>>>>>> traps
   externalObjects: {}
   userData: 
   assetBundleName: 

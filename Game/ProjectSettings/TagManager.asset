@@ -7,6 +7,10 @@ TagManager:
   - deathTile
   - CrushWall
   - Climable
+  - Cow
+  - Pig
+  - Sheep
+  - RockTrap
   layers:
   - Default
   - TransparentFX

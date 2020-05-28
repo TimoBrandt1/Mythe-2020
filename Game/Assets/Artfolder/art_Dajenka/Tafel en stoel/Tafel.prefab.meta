@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Game/Assets/Standard Assets/Environment.meta
+guid: f8c45e2e6188a1943963febfec997cef
+folderAsset: yes
+DefaultImporter:
+=======
 guid: 3ce4e55863284694999488f1d60f7061
 PrefabImporter:
+>>>>>>> Art:Game/Assets/Artfolder/art_Dajenka/Tafel.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
