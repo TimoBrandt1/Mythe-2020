@@ -14,7 +14,7 @@ public class Stone : MonoBehaviour
     private void OnEnable()
     {
         speed = 20;
-        
+        Invoke("Disable", 0.6f);
     }
 
     void Update()
@@ -29,8 +29,7 @@ public class Stone : MonoBehaviour
         }
         if (collision.gameObject.tag == "RockTrap")
         {
-            speed = 0;
-            Invoke("Disable", 0.2f);
+            speed = 0;   
         }
     }
 
