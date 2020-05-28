@@ -13895,6 +13895,8 @@ MonoBehaviour:
   lightRange: 30
   lightTag: light
   smooth: 1
+  onIntencity: 2
+  offIntencity: 0
 --- !u!1 &289214744
 GameObject:
   m_ObjectHideFlags: 0
@@ -79479,7 +79481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1966378655
 Light:
   m_ObjectHideFlags: 0
