@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class UI_Assistant : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class UI_Assistant : MonoBehaviour
     private TextWriter.TextWriterSingel textWriterSingel;
     private AudioSource talkingAudioSource;
     private int currentMessageIndex=0;
-
     public void Awake()
     {
+        string[] messageArray = File.ReadAllLines(Application.dataPath + "/UI/Text.json");
         //textImage = GameObject.Find("textImage");
         messageText = transform.Find("message").Find("messageText").GetComponent<Text>();
         talkingAudioSource = transform.Find("TalkingSound").GetComponent<AudioSource>();
@@ -22,13 +23,14 @@ public class UI_Assistant : MonoBehaviour
         }
         else
         {
-            string[] messageArray = new string[] {
+            
+            /*string[] messageArray = new string[] {
             "hello brave explorer you are now in the tempel of doom",
             "your task is to get the holy grale and make it out alive",
             "Beware if what lies ahead it might be dangerous",
             "White = good, Black = Death",
             "Hold space to climbe a lege",
-            "Dont get Crushed"
+            "Dont get Crushed"*/
         };
             if (currentMessageIndex > messageArray.Length -1) { currentMessageIndex = 0; }
             talkingAudioSource.Play();
@@ -36,7 +38,6 @@ public class UI_Assistant : MonoBehaviour
             StartTalkingSound();
             textWriterSingel = TextWriter.AddWriter_Static(messageText, message, 0.05f, true, true, StopTalkingSound);
             currentMessageIndex++;
-        }
     }
 
     private void StartTalkingSound()
