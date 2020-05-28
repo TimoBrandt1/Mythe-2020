@@ -5,7 +5,7 @@ using UnityEngine;
 public class RockSpawning : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float Timer = 0.001f;
+    [SerializeField] private float Timer;
     private bool canBeTriggerd = true;
 
     public void TrapTriggerd()
@@ -19,19 +19,19 @@ public class RockSpawning : MonoBehaviour
 
     private IEnumerator SpawnRocks()
     {
-        GameObject obj = ObjectPooler.current.GetPooledObject();
-        if (obj == null) yield return null;
-
         for (int i = 0; i < spawnPoints.Length; i++)
         {
+            GameObject obj = ObjectPooler.current.GetPooledObject();
+            obj.transform.Rotate(0, 0, 0);
             obj.transform.position = spawnPoints[i].position;
             obj.transform.rotation = spawnPoints[i].rotation;
             obj.SetActive(true);
-            if (i == 4 || i == 8)
+
+            if (i == spawnPoints.Length - 1)
             {
                 yield return new WaitForSeconds(Timer);
+                StartCoroutine(SpawnRocks());
             }
         }
-        StartCoroutine(SpawnRocks());
     }
 }

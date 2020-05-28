@@ -10,6 +10,7 @@ TagManager:
   - Cow
   - Pig
   - Sheep
+  - RockTrap
   layers:
   - Default
   - TransparentFX

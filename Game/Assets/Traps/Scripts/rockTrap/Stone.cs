@@ -6,17 +6,15 @@ public class Stone : MonoBehaviour
 {
     [SerializeField] private float speed = 20;
     Vector3 temp;
-    private float destroyScale = 0.3f;
+    //private float destroyScale = 0.3f;
     private string playerTag = "Player";
+    private bool disabled = false;
     // Update is called once per frame
 
     private void OnEnable()
     {
-        if (speed == 0)
-        {
-            speed = 20;
-        }
-        Invoke("Disable", 1f);
+        speed = 20;
+        
     }
 
     void Update()
@@ -29,10 +27,10 @@ public class Stone : MonoBehaviour
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(50);
         }
-        else
+        if (collision.gameObject.tag == "RockTrap")
         {
             speed = 0;
-            //Shrink();
+            Invoke("Disable", 0.2f);
         }
     }
 

@@ -6,10 +6,11 @@ public class Tile : MonoBehaviour
 {
     private float downMoveQuantity = -0.015f;
     private float upMoveQuantity = 0.015f;
-    
+    private string playerTag = "Player";
+
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == playerTag)
         {
             StartCoroutine(TileMove(downMoveQuantity));
             Debug.Log(gameObject.tag);
@@ -18,7 +19,10 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        StartCoroutine(TileMove(upMoveQuantity));
+        if (other.gameObject.tag == playerTag)
+        {
+            StartCoroutine(TileMove(upMoveQuantity));
+        }
     }
 
     IEnumerator TileMove(float tileMoveFloat)
@@ -29,6 +33,5 @@ public class Tile : MonoBehaviour
             this.transform.position = this.transform.position += new Vector3(0f, tileMoveFloat, 0f);
             yield return new WaitForSeconds(waitTime);
         }
-
     }
 }
