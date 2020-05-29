@@ -25,7 +25,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | Product  | Link |
 | ------ |  ------ |
 | Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog](https://trello.com/b/teHwVxv4)
-| Sprint retrospective verslagen (pdf)                      | [RetrospectiveVerslagen]()
+| Sprint retrospective verslagen (pdf)                      | [RetrospectiveVerslagen](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/Retrospective%20Sprint%201.pdf)
 | Logboek (pdf)                                             | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Opnames sprint retrospectives (Teams opnames)             | [Folder op teams]()
 | Opnames standups (Teams opnames)                          | [Folder op teams]()
