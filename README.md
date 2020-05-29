@@ -29,6 +29,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | Logboek (pdf)                                             | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Opnames sprint retrospectives (Teams opnames)             | [Folder op teams]()
 | Opnames standups (Teams opnames)                          | [Folder op teams]()
+| Presentatie Sprint 2                                      | [Presentatie](https://docs.google.com/presentation/d/1GSIlR_Ch2qwd-cOTQRFFzxusS9jy-L1UiP90_xxD5TE/edit?usp=sharing)
 |<img width=500/>|<img width=300/>|
    
 #### Producten Werkproces 3
