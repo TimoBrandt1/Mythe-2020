@@ -54,7 +54,6 @@ public class UI_Assistant : MonoBehaviour
 
     private IEnumerator ResetText()
     {
-        
         yield return new WaitForSeconds(1);
         messageText.text = null;
         textImage.SetActive(false);

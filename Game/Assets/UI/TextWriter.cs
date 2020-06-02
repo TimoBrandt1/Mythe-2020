@@ -19,6 +19,7 @@ public class TextWriter : MonoBehaviour
     {
         if (removeWriterBeforeAdd)
         {
+            Debug.Log(instance);
             instance.RemoveWriter(uiText);
         }
         return instance.AddWriter(uiText, textToWrite, timePerCharacter, invisibleCharacters, onComplete);
@@ -81,6 +82,7 @@ public class TextWriter : MonoBehaviour
         public bool Update()
         {
                 timer -= Time.deltaTime;
+            
                 while (timer <= 0f)
                 {
                     timer += timePerCharacter;
