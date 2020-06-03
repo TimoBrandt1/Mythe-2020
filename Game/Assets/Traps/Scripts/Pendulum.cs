@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pendulum : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
+    private Rigidbody rb;
     [SerializeField] private float leftPushRange;
     [SerializeField] private float rightPushRange;
     [SerializeField] private Vector3 velocityThreshold;
@@ -12,7 +12,8 @@ public class Pendulum : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.angularVelocity.z = velocityThreshold.z;
+        rb.angularVelocity = velocityThreshold;
+        Debug.Log(rb.angularVelocity);
     }
 
     // Update is called once per frame
@@ -24,11 +25,15 @@ public class Pendulum : MonoBehaviour
     {
         if (transform.rotation.z > 0
             && transform.rotation.z < rightPushRange
-            && rb.angularVelocity > velocityThreshold)
+            && (rb.angularVelocity.z > 0)
+            && rb.angularVelocity.z < velocityThreshold.z)
         {
             rb.angularVelocity = velocityThreshold;
         }
-        else if (true)
+        else if (transform.rotation.z < 0
+            && transform.rotation.z > rightPushRange
+            && (rb.angularVelocity.z < 0)
+            && rb.angularVelocity.z > velocityThreshold.z * -1)
         {
             rb.angularVelocity = velocityThreshold * -1;
         }
