@@ -11,8 +11,8 @@ public class WallMovement : MonoBehaviour
     [SerializeField] private float forwardSpeed;
     [SerializeField] private float backwardSpeed;
 
+    private bool move = false;
     private Vector3 startPos;
-    private bool touched = false;
 
     void Start()
     {
@@ -24,25 +24,22 @@ public class WallMovement : MonoBehaviour
     {
         WallMove();
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "CrushWall")
-        {
-            touched = true;
-        }
-    }
     private void WallMove()
     {
-        if (touched == false)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, destination.position, forwardSpeed);
-        }
-        if (touched == true)
+        if (transform.position == destination.position && move == true)
         {
             transform.position = Vector3.MoveTowards(transform.position, startPos, backwardSpeed);
             if (transform.position == startPos)
             {
-                touched = false;
+                move = false;
+            }
+        }
+        if(transform.position != destination.position && move == false)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, destination.position, forwardSpeed);
+            if (transform.position == destination.position)
+            {
+                move = true;
             }
         }
     }
