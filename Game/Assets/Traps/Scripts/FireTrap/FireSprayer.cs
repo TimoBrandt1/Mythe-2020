@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class FireSprayer : MonoBehaviour
 {
+    [SerializeField] private GameObject[] row;
+    [SerializeField] private bool singleFlame = false;
+
     private GameObject StartPoint;
-    public bool singleFlame = false;
-    public bool play = false;
-    public GameObject[] row;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    private bool play = false;
 
     // Update is called once per frame
     void Update()
