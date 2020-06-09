@@ -151,6 +151,95 @@ Transform:
   m_Father: {fileID: 518788228}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &19657729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.71
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.39
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.74244803
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.66990376
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 95.881004
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 62.668747
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 62.668747
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 62.668747
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 011dc10a559fbef46b7908974ccd711f, type: 2}
+    - target: {fileID: -927199367670048503, guid: 6af7983f61152444d8e0763554854720,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall ceiling holders clean left
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6af7983f61152444d8e0763554854720, type: 3}
 --- !u!1 &30988412
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +321,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 267c3a5fa84ef9c4890526369fb65d32,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.1
+      value: 19.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 267c3a5fa84ef9c4890526369fb65d32,
         type: 3}
@@ -2198,6 +2287,95 @@ Transform:
   m_Father: {fileID: 617397622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1058958174
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3199997
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.71
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01999998
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.74244803
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.66990376
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 95.881004
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 62.668747
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 62.668747
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 62.668747
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a62e7632d89df244f9688ac9387f77a1, type: 2}
+    - target: {fileID: -927199367670048503, guid: bdc140b7d969d1745a5aa676d70fec59,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall ceiling holders clean right
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bdc140b7d969d1745a5aa676d70fec59, type: 3}
 --- !u!1 &1065197781
 GameObject:
   m_ObjectHideFlags: 0
