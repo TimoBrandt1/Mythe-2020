@@ -46,13 +46,11 @@ public class Door : MonoBehaviour
     }
     private void InputEventTrigger(object sender, System.EventArgs e)
     {
-        thisAudio.Play();
         canMove = true;
     }
     private void OutputEventTrigger(object sender, System.EventArgs e)
     {
-        thisAudio.Play();
-        canMove = true;
+        canMove = false;
     }
     private void PositionChange()
     {
