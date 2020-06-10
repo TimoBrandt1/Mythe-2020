@@ -1,18 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventTrigger : PressurPlate
+public class EventTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public event EventHandler OnEventEnter;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        OnEventEnter?.Invoke(this, EventArgs.Empty);
     }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -19,7 +19,7 @@ public class TextWriter : MonoBehaviour
     {
         if (removeWriterBeforeAdd)
         {
-            Debug.Log(instance);
+            //Debug.Log(instance);
             instance.RemoveWriter(uiText);
         }
         return instance.AddWriter(uiText, textToWrite, timePerCharacter, invisibleCharacters, onComplete);
@@ -50,8 +50,9 @@ public class TextWriter : MonoBehaviour
     {
         for (int i = 0; i < textWriterSingelList.Count; i++)
         {
-           bool destroyInstance = textWriterSingelList[i].Update();
-            if (destroyInstance) {
+            bool destroyInstance = textWriterSingelList[i].Update();
+            if (destroyInstance)
+            {
                 textWriterSingelList.RemoveAt(i);
                 i--;
             }
@@ -81,28 +82,28 @@ public class TextWriter : MonoBehaviour
         }
         public bool Update()
         {
-                timer -= Time.deltaTime;
-            
-                while (timer <= 0f)
-                {
-                    timer += timePerCharacter;
-                    characterIntdex++;
-                    string text = textToWrite.Substring(0, characterIntdex);
-                    if (invisibleCharacters)
-                    {
-                        text += "<color=#00000000>" + textToWrite.Substring(characterIntdex) + "</color>";
-                    }
-                    uiText.text = text;
+            timer -= Time.deltaTime;
 
-                    if (characterIntdex >= textToWrite.Length)
-                    {
+            while (timer <= 0f)
+            {
+                timer += timePerCharacter;
+                characterIntdex++;
+                string text = textToWrite.Substring(0, characterIntdex);
+                if (invisibleCharacters)
+                {
+                    text += "<color=#00000000>" + textToWrite.Substring(characterIntdex) + "</color>";
+                }
+                uiText.text = text;
+
+                if (characterIntdex >= textToWrite.Length)
+                {
                     if (onComplete != null)
                     {
                         onComplete();
                     }
-                        return true;
-                    }
+                    return true;
                 }
+            }
             return false;
         }
         public Text GetUIText()
