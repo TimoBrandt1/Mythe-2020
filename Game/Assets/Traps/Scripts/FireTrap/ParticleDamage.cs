@@ -6,7 +6,9 @@ public class ParticleDamage : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log(other.name);
-        other.SendMessage("TakeDamage", 100);
+        if (other.tag == "Player")
+        {
+            other.SendMessage("TakeDamage", 100);
+        }
     }
 }
