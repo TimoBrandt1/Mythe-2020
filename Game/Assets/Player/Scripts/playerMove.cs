@@ -25,7 +25,7 @@ public class playerMove : MonoBehaviour
     {
         _maxForwardAmount = 1f;
         _rigidbody = GetComponent<Rigidbody>();
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         _origGroundCheckDistance = _groundCheckDistance;
 
@@ -107,16 +107,16 @@ public class playerMove : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.LeftShift))
         {
-            if (_maxForwardAmount > 1f) _maxForwardAmount -= 0.5f * Time.deltaTime;
+            if (_maxForwardAmount > 0.5f) _maxForwardAmount -= 1f * Time.deltaTime;
 
-            if (_forwardAmount <= 1f) _maxForwardAmount = 1f;
+            if (_forwardAmount <= 0.5f) _maxForwardAmount = 0.5f;
 
             if (_forwardAmount > _maxForwardAmount) _forwardAmount = _maxForwardAmount;
 
         }else if (moveCurrent.z > 1f)
         {
             if (_maxForwardAmount > 1.5f) _maxForwardAmount = 1.5f;
-            else _maxForwardAmount += 0.5f * Time.deltaTime; 
+            else _maxForwardAmount += 1f * Time.deltaTime; 
             _forwardAmount = _maxForwardAmount;
         }
         return _forwardAmount;
