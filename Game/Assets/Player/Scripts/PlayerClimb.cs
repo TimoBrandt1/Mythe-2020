@@ -9,12 +9,18 @@ public class PlayerClimb : MonoBehaviour
 
     public delegate void OnPlayerClimb();
     public delegate void OnPlayerLoose();
+    private Animator _anim;
     public event Action onPlayerClimb;
     public event Action onPlayerLoose;
     private float dist;
     public bool grabStart = false;
 
     public bool jumped = false;
+
+    private void Start()
+    {
+        _anim = GetComponentInChildren<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,11 +36,13 @@ public class PlayerClimb : MonoBehaviour
             setFirstPos();
             grabStart = true;
             onPlayerClimb();
+            _anim.SetBool("OnGround", false);
             GetComponent<playerMove>().enabled = false;
             GetComponent<ThirdPersonCharacterControl>().enabled = false;
         }
         else
         {
+            _anim.SetBool("OnGround", true);
             GetComponent<playerMove>().enabled = true;
             GetComponent<ThirdPersonCharacterControl>().enabled = true;
             onPlayerLoose();
@@ -47,17 +55,17 @@ public class PlayerClimb : MonoBehaviour
 
             transform.rotation = ledge1.transform.rotation;
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, ledge1.transform.position.x - ledge1.transform.localScale.x / 2, ledge1.transform.position.x + ledge1.transform.localScale.x / 2),
-            ledge1.transform.position.y - 1f,
+            ledge1.transform.position.y - 1.5f,
             Mathf.Clamp(transform.position.z, ledge1.transform.position.z - ledge1.transform.localScale.x / 2, ledge1.transform.position.z + ledge1.transform.localScale.x / 2));
 
-            if (Input.GetKey(KeyCode.D)) { transform.position += transform.right * Time.deltaTime; }
+            if (Input.GetKey(KeyCode.D)) { transform.position += transform.right * Time.deltaTime; _anim.SetFloat("JumpLeg", -1); }
 
-            if (Input.GetKey(KeyCode.A)) { transform.position -= transform.right * Time.deltaTime; }
+            if (Input.GetKey(KeyCode.A)) { transform.position -= transform.right * Time.deltaTime; _anim.SetFloat("JumpLeg", 1); }
 
-            if (Input.GetKey(KeyCode.W)) { }
-
-            if (Input.GetKey(KeyCode.S)) { }
-
+            if (!Input.GetKey(KeyCode.A) &! Input.GetKey(KeyCode.D))
+            {
+                _anim.SetFloat("JumpLeg", 0);
+            }
         }
     }
 
