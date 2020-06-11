@@ -19,13 +19,14 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | Link naar online product backlog (Trello) | [Backlog](https://trello.com/b/teHwVxv4)
 | Logboek (pdf)                             | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Game concept doc (pdf)                    | [GameDesignDoc](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/GameDesignDoc.pdf)
+| Sprint retrospective verslagen (pdf)      | [RetrospectiveVerslagen](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/Retrospective%20Sprint%201.pdf)
 |<img width=500/>|<img width=300/>|
    
 #### Producten Werkproces 2
 | Product  | Link |
 | ------ |  ------ |
 | Online Product backlog & Sprint backlog + DoD (Trello)    | [Backlog](https://trello.com/b/teHwVxv4)
-| Sprint retrospective verslagen (pdf)                      | [RetrospectiveVerslagen](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/Retrospective%20Sprint%201.pdf)
+| Sprint retrospective verslag (pdf)                        | [RetrospectiveVerslag2](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/Retrospective%20Sprint%202.pdf)
 | Logboek (pdf)                                             | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Opnames sprint retrospectives (Teams opnames)             | [Opnamens van Teams](https://github.com/TimoBrandt1/Mythe-2020/tree/master/producten/Opnamens/Retrospective)
 | Opnames standups (Teams opnames)                          | [Opnamens daily standup](https://github.com/TimoBrandt1/Mythe-2020/tree/master/producten/Opnamens/DailyStandup)
@@ -35,8 +36,8 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 #### Producten Werkproces 3
 | Product  | Link |
 | ------ |  ------ |
-| Sprint retrospective verslagen (pdf)  | [RetrospectiveVerslagen]()
-| Sprint review verslagen (pdf)         | [ReviewVerslagen]()
+| Sprint retrospective verslag (pdf)    | [RetrospectiveVerslag3]()
+| Sprint review verslag (pdf)           | [ReviewVerslag]()
 | Link naar online speelbaar prototype  | [Prototype]()
 | Logboek (pdf)                         | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Asset planning (pdf)                  | [AssetPlanning]()
