@@ -4906,6 +4906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: []
+  player: {fileID: 0}
+  activationRange: 30
   singleFlame: 1
 --- !u!1 &7404566187885735127
 GameObject:

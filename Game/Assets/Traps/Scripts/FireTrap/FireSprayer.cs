@@ -5,20 +5,30 @@ using UnityEngine;
 public class FireSprayer : MonoBehaviour
 {
     [SerializeField] private GameObject[] row;
+    [SerializeField] private Transform player;
+    [SerializeField] private float activationRange;
     [SerializeField] private bool singleFlame = false;
 
     private GameObject StartPoint;
     private bool play = false;
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        activationRange = 40f;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (play == false && singleFlame == false)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (play == false && singleFlame == false && distanceToPlayer < activationRange)
         {
             play = true;
             StartCoroutine(TimerMultiFlame());
         }
-        if (play == false && singleFlame == true)
+        if (play == false && singleFlame == true && distanceToPlayer < activationRange)
         {
            play = true;
            StartCoroutine(TimerSingleFlame());
@@ -43,7 +53,6 @@ public class FireSprayer : MonoBehaviour
 
     private IEnumerator TimerSingleFlame()
     {
-
         gameObject.GetComponentInChildren<ParticleSystem>().Play();
         yield return new WaitForSeconds(Random.Range(1, 10));
 
