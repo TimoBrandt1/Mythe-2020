@@ -8,8 +8,8 @@ public class LightSphere : MonoBehaviour
     [SerializeField] private int lightRange = 3;
     public string lightTag = "light";
     private GameObject[] lights;
-    [SerializeField] private float smooth = 1;
-    [SerializeField] private float onIntencity = 2f;
+    private float smooth = 1;
+    [SerializeField] private float onIntencity = 1f;
     [SerializeField] private float offIntencity = 0f;
 
     private void Start()
@@ -33,7 +33,7 @@ public class LightSphere : MonoBehaviour
                         if (child.GetComponent<ParticleSystem>().isPlaying)
                         {
                             StartCoroutine(UpdateLight(child.GetComponent<Light>(), offIntencity,false));
-                            smooth = 3;
+                            smooth = 4;
                             child.GetComponent<ParticleSystem>().Stop();
                         }
                     }
@@ -42,7 +42,7 @@ public class LightSphere : MonoBehaviour
                         if (child.GetComponent<ParticleSystem>().isStopped)
                         {
                             StartCoroutine(UpdateLight(child.GetComponent<Light>(), onIntencity,true));
-                            smooth = 1;
+                            smooth = 3;
                             child.GetComponent<ParticleSystem>().Play();
                         }
                     }
@@ -60,13 +60,13 @@ public class LightSphere : MonoBehaviour
         {
             if (on == true)
             {
-                if (light.intensity >= (targetIntencity * 0.9))
+                if (light.intensity >= (targetIntencity * 0.8))
                 {
                     light.intensity = targetIntencity;
                 }
             }
             else {
-                if (light.intensity <= 0.1)
+                if (light.intensity <= 0.3)
                 {
                     light.intensity = 0;
                 }

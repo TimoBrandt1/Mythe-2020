@@ -21312,9 +21312,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightRange: 30
   lightTag: light
-  smooth: 1
   onIntencity: 2
   offIntencity: 0
+--- !u!114 &1217440698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217440687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a07a3afa3da7948ad0e7bcebdf8b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightRange: 2222
 --- !u!1001 &1224744781
 PrefabInstance:
   m_ObjectHideFlags: 0
