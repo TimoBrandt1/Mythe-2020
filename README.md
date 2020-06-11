@@ -40,8 +40,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | Sprint review verslag (pdf)           | [ReviewVerslag]()
 | Link naar online speelbaar prototype  | [Prototype]()
 | Logboek (pdf)                         | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
-| Asset planning (pdf)                  | [AssetPlanning](
-https://docs.google.com/spreadsheets/d/1yPPO836AfBKH7wcl1XGApa1fx9H8tCeOoa8Zo0F0EE8/edit?usp=sharing)
+| Asset planning (pdf)                  | [AssetPlanning](https://docs.google.com/spreadsheets/d/1yPPO836AfBKH7wcl1XGApa1fx9H8tCeOoa8Zo0F0EE8/edit?usp=sharing)
 |<img width=500/>|<img width=300/>|
 
    [Backlog]: <https://trello.com/b/hik72z4q/mythe-2019-voorbeeld-trello>
