@@ -9,7 +9,7 @@ public class PlayerProximity : MonoBehaviour
 
     void Update()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, lightRange);
+       /* Collider[] hits = Physics.OverlapSphere(transform.position, lightRange);
 
         foreach (Collider light in hits)
         {
@@ -28,12 +28,22 @@ public class PlayerProximity : MonoBehaviour
                     light.gameObject.GetComponent<MeshRenderer>().enabled = true;
                 }
             }
-        }
+        }*/
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lightRange);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        collision.gameObject.SetActive(true);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        collision.gameObject.SetActive(false);
     }
 }
