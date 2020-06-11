@@ -9,41 +9,31 @@ public class PlayerProximity : MonoBehaviour
 
     void Update()
     {
-       /* Collider[] hits = Physics.OverlapSphere(transform.position, lightRange);
+        Collider[] hits = Physics.OverlapSphere(transform.position, lightRange);
 
         foreach (Collider light in hits)
         {
-                float distanceToLight = Vector3.Distance(transform.position, light.transform.position);
-                if (distanceToLight >= (lightRange * 0.02))
+            float distanceToLight = Vector3.Distance(transform.position, light.transform.position);
+            if (distanceToLight >= (lightRange * 0.02))
+            {
+                if (light.gameObject.GetComponentInChildren<MeshRenderer>() != null)
                 {
-                if (light.gameObject.GetComponent<MeshRenderer>() != null)
-                {
-                    light.gameObject.GetComponent<MeshRenderer>().enabled = false;
-                }
-                }
-                if (distanceToLight < (lightRange * 0.02))
-                {
-                if (light.gameObject.GetComponent<MeshRenderer>() != null)
-                {
-                    light.gameObject.GetComponent<MeshRenderer>().enabled = true;
+                    light.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
                 }
             }
-        }*/
+            if (distanceToLight < (lightRange * 0.02))
+            {
+                if (light.gameObject.GetComponentInChildren<MeshRenderer>() != null)
+                {
+                    light.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+                }
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lightRange);
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        collision.gameObject.SetActive(true);
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        collision.gameObject.SetActive(false);
     }
 }
