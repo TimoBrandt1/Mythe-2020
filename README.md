@@ -19,7 +19,7 @@ Echter gaat dit niet heel simpel, omdat je door verschillende vallen van de temp
 | Link naar online product backlog (Trello) | [Backlog](https://trello.com/b/teHwVxv4)
 | Logboek (pdf)                             | [Logboek](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/logboek.pdf)
 | Game concept doc (pdf)                    | [GameDesignDoc](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/GameDesignDoc.pdf)
-| Sprint retrospective verslagen (pdf)      | [RetrospectiveVerslagen](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/Retrospective%20Sprint%201.pdf)
+| Sprint retrospective verslag (pdf)      | [RetrospectiveVerslag1](https://github.com/TimoBrandt1/Mythe-2020/blob/master/producten/Retrospective%20Sprint%201.pdf)
 |<img width=500/>|<img width=300/>|
    
 #### Producten Werkproces 2
