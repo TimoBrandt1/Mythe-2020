@@ -85,6 +85,7 @@ public class playerMove : MonoBehaviour
         {
             _groundNormal = hitInfo.normal;
             m_IsGrounded = true;
+            Physics.gravity = new Vector3(0f, -9.81f, 0f);
             //_rigidbody.useGravity = true;
         }
         else
@@ -125,6 +126,7 @@ public class playerMove : MonoBehaviour
     void HandleAirborneMovement()
     {
         _groundCheckDistance = _rigidbody.velocity.y < 0 ? _origGroundCheckDistance : 0.01f;
+        Physics.gravity = new Vector3(0f, -50f, 0f);
     }
 
     void onPlayerClimbActive()
