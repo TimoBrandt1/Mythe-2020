@@ -4,50 +4,50 @@ using UnityEngine;
 
 public class FireSprayer : MonoBehaviour
 {
-    [SerializeField] private GameObject[] row;
-    [SerializeField] private Transform player;
-    [SerializeField] private float activationRange;
-    [SerializeField] private bool singleFlame = false;
+    [SerializeField] private GameObject[] _row;
+    [SerializeField] private Transform _player;
+    [SerializeField] private float _activationRange;
+    [SerializeField] private bool _singleFlame = false;
 
-    private GameObject StartPoint;
-    private bool play = false;
+    private GameObject _StartPoint;
+    private bool _play = false;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        activationRange = 40f;
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _activationRange = 40f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, _player.position);
 
-        if (play == false && singleFlame == false && distanceToPlayer < activationRange)
+        if (_play == false && _singleFlame == false && distanceToPlayer < _activationRange)
         {
-            play = true;
+            _play = true;
             StartCoroutine(TimerMultiFlame());
         }
-        if (play == false && singleFlame == true && distanceToPlayer < activationRange)
+        if (_play == false && _singleFlame == true && distanceToPlayer < _activationRange)
         {
-           play = true;
+           _play = true;
            StartCoroutine(TimerSingleFlame());
         }
     }
 
     private IEnumerator TimerMultiFlame()
     {
-        foreach (GameObject child in row)
+        foreach (GameObject child in _row)
         {
             child.GetComponentInChildren<ParticleSystem>().Play();
         }
         yield return new WaitForSeconds(3);
-        foreach (GameObject fire in row)
+        foreach (GameObject fire in _row)
         {
             fire.GetComponentInChildren<ParticleSystem>().Stop();
         }
         yield return new WaitForSeconds(3);
-        play = false;
+        _play = false;
 
     }
 
@@ -58,6 +58,6 @@ public class FireSprayer : MonoBehaviour
 
         gameObject.GetComponentInChildren<ParticleSystem>().Stop();
         yield return new WaitForSeconds(Random.Range(1, 10));
-        play = false;
+        _play = false;
     }
 }

@@ -10,16 +10,30 @@ public class playerMove : MonoBehaviour
     [SerializeField] private float _groundCheckDistance = 0.1f;
 
     private PlayerClimb _PlayerClimb;
-
     private Animator _anim;
     private Rigidbody _rigidbody;
-    private float _origGroundCheckDistance;
-    private float _turnAmount;
-    public float _maxForwardAmount;
-    public float _forwardAmount;
+
     private Vector3 _groundNormal;
     private Vector3 moveCurrent;
+
+    private float _origGroundCheckDistance;
+    private float _turnAmount;
+
+    private float _maxWalkVelocity = 14f;
+    private float _maxSprintVelocity = 20f;
+
+    private float _slowDownSpeed = 0.1f;
+    private float _animDampTime = 0.1f;
+
+    private float _goundCheckOffset = 0.01f;
+
+    private float _walkTreshold = 0.5f;
+    private float _runTreshold = 1f;
+    private float _maxRunTreshold = 1.5f;
+
     bool m_IsGrounded;
+    public float _maxForwardAmount;
+    public float _forwardAmount;
 
     void Start()
     {
@@ -44,11 +58,11 @@ public class playerMove : MonoBehaviour
 
         if (!Input.GetKey(KeyCode.LeftShift))
         {
-            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, 14f);
+            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _maxWalkVelocity);
         }
         else
         {
-            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, 20f);
+            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _maxSprintVelocity);
         }
 
         move = transform.InverseTransformDirection(move);
@@ -58,11 +72,11 @@ public class playerMove : MonoBehaviour
 
         if (move.z > 0)
         {
-            _forwardAmount += move.z / 20;
+            _forwardAmount += move.z / _maxSprintVelocity;
         }
         else
         {
-            if(_forwardAmount > 0) _forwardAmount -= 0.1f;
+            if(_forwardAmount > 0) _forwardAmount -= _slowDownSpeed;
 
         }
 
@@ -79,9 +93,9 @@ public class playerMove : MonoBehaviour
     {
         RaycastHit hitInfo;
         // laat de lijn zien voor debug purposes
-        Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * _groundCheckDistance));
+        Debug.DrawLine(transform.position + (Vector3.up * _groundCheckDistance), transform.position + (Vector3.up * _groundCheckDistance) + (Vector3.down * _groundCheckDistance));
 
-        if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, _groundCheckDistance))
+        if (Physics.Raycast(transform.position + (Vector3.up * _groundCheckDistance), Vector3.down, out hitInfo, _groundCheckDistance))
         {
             _groundNormal = hitInfo.normal;
             m_IsGrounded = true;
@@ -101,22 +115,22 @@ public class playerMove : MonoBehaviour
         // laat het caracter sneller draaien
         float turnSpeed = Mathf.Lerp(_stationaryTurnSpeed, _movingTurnSpeed, _forwardAmount);
         transform.Rotate(0, _turnAmount * turnSpeed *  Time.deltaTime, 0);
-        _anim.SetFloat("Turn", _turnAmount, 0.1f, Time.deltaTime);
+        _anim.SetFloat("Turn", _turnAmount, _animDampTime, Time.deltaTime);
     }
 
     public float GetVelocity()
     {
         if (!Input.GetKey(KeyCode.LeftShift))
         {
-            if (_maxForwardAmount > 0.5f) _maxForwardAmount -= 1f * Time.deltaTime;
+            if (_maxForwardAmount > _walkTreshold) _maxForwardAmount -= 1f * Time.deltaTime;
 
-            if (_forwardAmount <= 0.5f) _maxForwardAmount = 0.5f;
+            if (_forwardAmount <= _walkTreshold) _maxForwardAmount = _walkTreshold;
 
             if (_forwardAmount > _maxForwardAmount) _forwardAmount = _maxForwardAmount;
 
-        }else if (moveCurrent.z > 1f)
+        }else if (moveCurrent.z > _runTreshold)
         {
-            if (_maxForwardAmount > 1.5f) _maxForwardAmount = 1.5f;
+            if (_maxForwardAmount > _maxRunTreshold) _maxForwardAmount = _maxRunTreshold;
             else _maxForwardAmount += 1f * Time.deltaTime; 
             _forwardAmount = _maxForwardAmount;
         }
@@ -125,7 +139,7 @@ public class playerMove : MonoBehaviour
 
     void HandleAirborneMovement()
     {
-        _groundCheckDistance = _rigidbody.velocity.y < 0 ? _origGroundCheckDistance : 0.01f;
+        _groundCheckDistance = _rigidbody.velocity.y < 0 ? _origGroundCheckDistance : _goundCheckOffset;
         Physics.gravity = new Vector3(0f, -50f, 0f);
     }
 

@@ -9,12 +9,16 @@ public class PlayerClimb : MonoBehaviour
 
     public delegate void OnPlayerClimb();
     public delegate void OnPlayerLoose();
-    private Animator _anim;
     public event Action onPlayerClimb;
     public event Action onPlayerLoose;
-    private float dist;
-    public bool grabStart = false;
 
+    private Animator _anim;
+    private float _dist;
+    private float _grabDistnace = 5f;
+    private float _playerModelOffset = 1.5f;
+    private float _ledgeJumpTreshold = 12f;
+
+    public bool grabStart = false;
     public bool jumped = false;
 
     private void Start()
@@ -30,8 +34,8 @@ public class PlayerClimb : MonoBehaviour
             FindClosestEnemy();
         }
 
-        dist = Vector3.Distance(ledge1.transform.position, transform.position);
-        if (dist < 5 && Input.GetKey(KeyCode.Space))
+        _dist = Vector3.Distance(ledge1.transform.position, transform.position);
+        if (_dist < _grabDistnace && Input.GetKey(KeyCode.Space))
         {
             setFirstPos();
             grabStart = true;
@@ -55,7 +59,7 @@ public class PlayerClimb : MonoBehaviour
 
             transform.rotation = ledge1.transform.rotation;
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, ledge1.transform.position.x - ledge1.transform.localScale.x / 2, ledge1.transform.position.x + ledge1.transform.localScale.x / 2),
-            ledge1.transform.position.y - 1.5f,
+            ledge1.transform.position.y - _playerModelOffset,
             Mathf.Clamp(transform.position.z, ledge1.transform.position.z - ledge1.transform.localScale.x / 2, ledge1.transform.position.z + ledge1.transform.localScale.x / 2));
 
             if (Input.GetKey(KeyCode.D)) { transform.position += transform.right * Time.deltaTime; _anim.SetFloat("JumpLeg", -1); }
@@ -103,7 +107,7 @@ public class PlayerClimb : MonoBehaviour
             Debug.DrawLine(this.transform.position, closestPoint);
             float distanceToEnemy = (closestPoint - this.transform.position).sqrMagnitude;
 
-            if (distanceToEnemy > 1f && distanceToEnemy < 12f && Input.GetKeyDown(KeyCode.D) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.z > ledge1.transform.position.z || distanceToEnemy > 1f && distanceToEnemy < 12f && Input.GetKeyDown(KeyCode.D) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.x > ledge1.transform.position.x)
+            if (distanceToEnemy > 1f && distanceToEnemy < _ledgeJumpTreshold && Input.GetKeyDown(KeyCode.D) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.z > ledge1.transform.position.z || distanceToEnemy > 1f && distanceToEnemy < _ledgeJumpTreshold && Input.GetKeyDown(KeyCode.D) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.x > ledge1.transform.position.x)
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
@@ -111,7 +115,7 @@ public class PlayerClimb : MonoBehaviour
                 StartCoroutine(jumpTimer());
             }
 
-            if (distanceToEnemy > 1f && distanceToEnemy < 12f && Input.GetKeyDown(KeyCode.A) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.z < ledge1.transform.position.z || distanceToEnemy > 1f && distanceToEnemy < 12f && Input.GetKeyDown(KeyCode.A) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.x < ledge1.transform.position.x)
+            if (distanceToEnemy > 1f && distanceToEnemy < _ledgeJumpTreshold && Input.GetKeyDown(KeyCode.A) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.z < ledge1.transform.position.z || distanceToEnemy > 1f && distanceToEnemy < _ledgeJumpTreshold && Input.GetKeyDown(KeyCode.A) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y == ledge1.transform.position.y && currentEnemy.gameObject.transform.position.x < ledge1.transform.position.x)
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
@@ -119,7 +123,7 @@ public class PlayerClimb : MonoBehaviour
                 StartCoroutine(jumpTimer());
             }
 
-            if (Input.GetKeyDown(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y > ledge1.transform.position.y && jumped == false && distanceToEnemy > 1f && distanceToEnemy < 12f)
+            if (Input.GetKeyDown(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y > ledge1.transform.position.y && jumped == false && distanceToEnemy > 1f && distanceToEnemy < _ledgeJumpTreshold)
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;
@@ -127,7 +131,7 @@ public class PlayerClimb : MonoBehaviour
                 StartCoroutine(jumpTimer());
             }
 
-            if (Input.GetKeyDown(KeyCode.S) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y < ledge1.transform.position.y && jumped == false && distanceToEnemy < 12f)
+            if (Input.GetKeyDown(KeyCode.S) && Input.GetKey(KeyCode.LeftShift) && currentEnemy.gameObject.transform.position.y < ledge1.transform.position.y && jumped == false && distanceToEnemy < _ledgeJumpTreshold)
             {
                 distanceToClosestEnemy = distanceToEnemy;
                 closestEnemy = currentEnemy;

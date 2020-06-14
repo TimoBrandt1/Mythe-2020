@@ -7,6 +7,7 @@ public class PlayerAnimatorController : MonoBehaviour
     private playerMove _playerMove;
     private Animator _anim;
     private float _speed;
+    private float _offset = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         _speed = _playerMove.GetVelocity();
         //Debug.Log(_speed);
-        _anim.SetFloat("Forward", _speed, 0.1f, Time.deltaTime);
+        _anim.SetFloat("Forward", _speed, _offset, Time.deltaTime);
 
     }
 }

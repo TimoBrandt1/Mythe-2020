@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-    [SerializeField] private GameObject Backpack;
-    [SerializeField] private Inventory BackpackSlots;
-    [SerializeField] private float PickupDistance = 1f;
-    [SerializeField] private Item item;
+    [SerializeField] private GameObject _Backpack;
+    [SerializeField] private Inventory _BackpackSlots;
+    [SerializeField] private float _PickupDistance = 1f;
+    [SerializeField] private Item _item;
 
     private void Start()
     {
-        BackpackSlots = Backpack.GetComponent<Inventory>();
+        _BackpackSlots = _Backpack.GetComponent<Inventory>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(Backpack.transform.position, transform.position);
-        if (dist < PickupDistance && Input.GetKey(KeyCode.E) && BackpackSlots.full == false)
+        float dist = Vector3.Distance(_Backpack.transform.position, transform.position);
+        if (dist < _PickupDistance && Input.GetKey(KeyCode.E) && _BackpackSlots.full == false)
         {
-            Backpack.GetComponent<Inventory>().AddItem(item);
+            _Backpack.GetComponent<Inventory>().AddItem(_item);
             this.gameObject.SetActive(false);
         }
     }
