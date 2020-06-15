@@ -20,7 +20,7 @@ public class Blocktrap : MonoBehaviour
     {
         postionB = this.transform.position + targetPos;
         postionA = this.transform.position;
-        lerptime = Random.Range(0.5f, 2f);
+        //lerptime = Random.Range(0.5f, 2f);
         //lerptime = 1;
         EventTrigger inputEventTrigger = InputEventTriggerObject.GetComponent<EventTrigger>();
         inputEventTrigger.OnEventEnter += InputEventTrigger;

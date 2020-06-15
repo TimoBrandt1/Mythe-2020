@@ -4824,6 +4824,7 @@ GameObject:
   - component: {fileID: 6837589887044552992}
   - component: {fileID: 999648128738260441}
   - component: {fileID: 7404566189985967377}
+  - component: {fileID: -3892192487857481042}
   m_Layer: 0
   m_Name: SingleFireTap
   m_TagString: Untagged
@@ -4906,7 +4907,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: []
+  player: {fileID: 0}
+  activationRange: 30
   singleFlame: 1
+--- !u!135 &-3892192487857481042
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577280910145995013}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.023092961
+  m_Center: {x: 0, y: 2.3283064e-10, z: 0}
 --- !u!1 &7404566187885735127
 GameObject:
   m_ObjectHideFlags: 0

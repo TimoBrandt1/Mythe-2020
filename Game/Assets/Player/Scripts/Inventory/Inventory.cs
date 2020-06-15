@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public Item[] itemArray = new Item[3];
+    [SerializeField] private Item[] _itemArray = new Item[3];
     public bool full = false;
 
     public bool AddItem(Item item)
     {
-        for(int i = 1; i < itemArray.Length; i++)
+        for(int i = 1; i < _itemArray.Length; i++)
         {
-            Debug.Log(itemArray[i]);
-            if (itemArray[i] == null)
+            Debug.Log(_itemArray[i]);
+            if (_itemArray[i] == null)
             {
-                itemArray[i] = item;
+                _itemArray[i] = item;
                 full = false;
                 return true;
             }

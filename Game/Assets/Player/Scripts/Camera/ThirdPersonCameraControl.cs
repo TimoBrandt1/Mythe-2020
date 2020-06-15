@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class ThirdPersonCameraControl : MonoBehaviour
 {
-    public float rotationSpeed = 1;
-    public Transform Target, Player;
+    [SerializeField] private float _rotationSpeed = 1;
+    [SerializeField] private float _turnSmoothing;
+    [SerializeField] private Transform _Target, _Player;
+
     float mouseX, mouseY;
-
     public Transform Obstruction;
-    public float turnSmoothing;
-
     Quaternion targetRotation;
 
     void Start()
     {
-        Obstruction = Target;
+        Obstruction = _Target;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -27,13 +26,13 @@ public class ThirdPersonCameraControl : MonoBehaviour
 
     void CamControl()
     {
-        mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
-        mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+        mouseX += Input.GetAxis("Mouse X") * _rotationSpeed;
+        mouseY -= Input.GetAxis("Mouse Y") * _rotationSpeed;
         mouseY = Mathf.Clamp(mouseY, -35, 60);
 
-        transform.LookAt(Target);
+        transform.LookAt(_Target);
 
-        Target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+        _Target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
 
     }
 }
