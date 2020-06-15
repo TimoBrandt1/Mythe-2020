@@ -23,14 +23,6 @@ public class UI_Assistant : MonoBehaviour
         }
         else
         {
-            
-            /*string[] messageArray = new string[] {
-            "hello brave explorer you are now in the tempel of doom",
-            "your task is to get the holy grale and make it out alive",
-            "Beware if what lies ahead it might be dangerous",
-            "White = good, Black = Death",
-            "Hold space to climbe a lege",
-            "Dont get Crushed"*/
         };
             if (currentMessageIndex > messageArray.Length -1) { currentMessageIndex = 0; }
             talkingAudioSource.Play();
