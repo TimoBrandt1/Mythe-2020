@@ -45,7 +45,10 @@ public class PlayerClimb : MonoBehaviour
             _anim.SetBool("OnGround", true);
             GetComponent<playerMove>().enabled = true;
             GetComponent<ThirdPersonCharacterControl>().enabled = true;
-            onPlayerLoose();
+            if (onPlayerLoose != null)
+            {
+                onPlayerLoose();
+            }
             grabStart = false;
         }
 

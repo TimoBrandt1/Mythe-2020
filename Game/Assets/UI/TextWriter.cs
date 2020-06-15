@@ -19,7 +19,6 @@ public class TextWriter : MonoBehaviour
     {
         if (removeWriterBeforeAdd)
         {
-            //Debug.Log(instance);
             instance.RemoveWriter(uiText);
         }
         return instance.AddWriter(uiText, textToWrite, timePerCharacter, invisibleCharacters, onComplete);

@@ -14,7 +14,7 @@ public class LightSphere : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("UpdateLight", 0f, 0.1f);
+        //InvokeRepeating("UpdateLight", 0f, 0.1f);
     }
 
     void Update()
