@@ -16,7 +16,7 @@ public class ObjectPooler : MonoBehaviour
     {
         current = this;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         pooledObjects = new List<GameObject>();
@@ -43,7 +43,6 @@ public class ObjectPooler : MonoBehaviour
             pooledObjects.Add(obj);
             return obj;
         }
-
         return null;
     }
 }

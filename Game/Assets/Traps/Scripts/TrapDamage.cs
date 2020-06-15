@@ -5,9 +5,10 @@ using UnityEngine;
 public class TrapDamage : MonoBehaviour
 {
     [SerializeField] private int trapDamage;
+    private string playerTag = "Player";
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == playerTag)
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(trapDamage);
         }
