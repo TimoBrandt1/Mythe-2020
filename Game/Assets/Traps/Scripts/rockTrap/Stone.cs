@@ -5,10 +5,7 @@ using UnityEngine;
 public class Stone : MonoBehaviour
 {
     [SerializeField] private float speed = 20;
-    Vector3 temp;
-    //private float destroyScale = 0.3f;
     private bool disabled = false;
-    // Update is called once per frame
 
     private void OnEnable()
     {

@@ -22,7 +22,7 @@ public class RockSpawning : MonoBehaviour
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             GameObject obj = ObjectPooler.current.GetPooledObject();
-            obj.transform.Rotate(0, 0, 0);
+            obj.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
             obj.transform.position = spawnPoints[i].position;
             obj.transform.rotation = spawnPoints[i].rotation;
             obj.SetActive(true);
