@@ -8,12 +8,14 @@ public class FireSprayer : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private float _activationRange;
     [SerializeField] private bool _singleFlame = false;
+    [SerializeField] private AudioSource _myAudio;
 
     private GameObject _StartPoint;
     private bool _play = false;
 
     private void Start()
     {
+        _myAudio = gameObject.GetComponent<AudioSource>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _activationRange = 40f;
     }
@@ -40,11 +42,13 @@ public class FireSprayer : MonoBehaviour
         foreach (GameObject child in _row)
         {
             child.GetComponentInChildren<ParticleSystem>().Play();
+            _myAudio.Play();
         }
         yield return new WaitForSeconds(3);
         foreach (GameObject fire in _row)
         {
             fire.GetComponentInChildren<ParticleSystem>().Stop();
+            _myAudio.Stop();
         }
         yield return new WaitForSeconds(3);
         _play = false;
@@ -54,9 +58,11 @@ public class FireSprayer : MonoBehaviour
     private IEnumerator TimerSingleFlame()
     {
         gameObject.GetComponentInChildren<ParticleSystem>().Play();
+        _myAudio.Play();
         yield return new WaitForSeconds(Random.Range(1, 10));
 
         gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+        _myAudio.Stop();
         yield return new WaitForSeconds(Random.Range(1, 10));
         _play = false;
     }
