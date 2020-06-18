@@ -28,7 +28,7 @@ public class WallMovement : MonoBehaviour
     {
         if (transform.position != startPos && move == true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPos, backwardSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, startPos, backwardSpeed * Time.deltaTime);
             if (transform.position == startPos)
             {
                 move = false;
@@ -36,7 +36,7 @@ public class WallMovement : MonoBehaviour
         }
         if(transform.position != destination.position && move == false)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination.position, forwardSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, destination.position, forwardSpeed * Time.deltaTime);
             if (transform.position == destination.position)
             {
                 move = true;
