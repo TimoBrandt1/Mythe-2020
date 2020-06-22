@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6eabd357e15673640a96c6a329813363
+=======
+<<<<<<< HEAD:Game/Assets/Artfolder/Enviorment/Crusher.meta
+guid: a95d179f7f0cdad4088c41a02d0fce18
+=======
+guid: f750f16cb7655fd4a8f447bb13e4ebd7
+>>>>>>> Art:Game/Assets/Artfolder/art_Dajenka/Materials.meta
+>>>>>>> Art
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
