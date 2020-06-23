@@ -10,6 +10,8 @@ public class TextHandler : MonoBehaviour
     [SerializeField] private GameObject textImage;
     private Text messageText;
     private string currentText;
+    private bool isPLaying = false;
+    private string[] textToSay;
 
     // Update is called once per frame
     private void Start()
@@ -22,10 +24,19 @@ public class TextHandler : MonoBehaviour
 
     public void StartWriter(string textToWrite, float timePerCharacter, float cleanText)
     {
-        StartCoroutine(WriteText(textToWrite, timePerCharacter,cleanText));
+        if (isPLaying == false)
+        {
+            StartCoroutine(WriteText(textToWrite, timePerCharacter, cleanText));
+        }
+        else
+        {
+            //textToSay.Add(new string[] { textToWrite});
+        }
     }
     private IEnumerator WriteText(string textToWrite, float timePerCharacter, float cleanText)
     {
+        isPLaying = true;
+        textImage.SetActive(true);
         talkingSound.Play();
         for (int i = 0; i < textToWrite.Length+1; i++)
         {
@@ -34,6 +45,11 @@ public class TextHandler : MonoBehaviour
             yield return new WaitForSeconds(timePerCharacter);
         }
         talkingSound.Stop();
+        yield return new WaitForSeconds(cleanText);
+        messageText.text = "";
+        textImage.SetActive(false);
+        isPLaying = false;
+
 
     }
 }

@@ -34,7 +34,7 @@ public class TextTrigger : PressurPlate
             {
                 textHandler.StartWriter(texts[i], timePerCharacter[i], cleanTime);
                 Debug.Log("gaat schrijven");
-                yield return new WaitForSeconds((timePerCharacter[i]*texts[i].Length)+1);          
+                yield return new WaitForSeconds((timePerCharacter[i]*texts[i].Length)+1+cleanTime);          
                 i++;  
             }
         }
