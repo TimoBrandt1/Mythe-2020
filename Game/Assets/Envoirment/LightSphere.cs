@@ -9,7 +9,7 @@ public class LightSphere : MonoBehaviour
     public string lightTag = "light";
     private GameObject[] lights;
     private float smooth = 1;
-    [SerializeField] private float onIntencity = 1f;
+    [SerializeField] private float onIntencity = 5f;
     [SerializeField] private float offIntencity = 0f;
 
     private void Start()

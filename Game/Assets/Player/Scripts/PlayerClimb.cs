@@ -12,6 +12,7 @@ public class PlayerClimb : MonoBehaviour
     public event Action onPlayerClimb;
     public event Action onPlayerLoose;
 
+    private Rigidbody rb;
     private Animator _anim;
     private float _dist;
     private float _grabDistnace = 5f;
@@ -23,6 +24,7 @@ public class PlayerClimb : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         _anim = GetComponentInChildren<Animator>();
     }
 
@@ -148,6 +150,7 @@ public class PlayerClimb : MonoBehaviour
     {
         if (grabStart == false && Input.GetKey(KeyCode.Space))
         {
+            rb.velocity = new Vector3(0, 0, 0);
             Vector3 closestPoint = ledge1.GetComponent<BoxCollider>().ClosestPointOnBounds(this.transform.position);
             transform.position = closestPoint;
             //transform.position = new Vector3(ledge1.transform.position.x, ledge1.transform.position.y, ledge1.transform.position.z);

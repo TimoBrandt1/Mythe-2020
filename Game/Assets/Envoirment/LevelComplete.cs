@@ -8,6 +8,7 @@ public class LevelComplete : MonoBehaviour
     [SerializeField] private GameObject _Backpack;
     [SerializeField] private Inventory _BackpackSlots;
     [SerializeField] private float _UseDistance = 1f;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class LevelComplete : MonoBehaviour
         float dist = Vector3.Distance(_Backpack.transform.position, transform.position);
         if (dist < _UseDistance && Input.GetKey(KeyCode.E) && _BackpackSlots.full == true)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            animator.SetTrigger("FadeOutLevelComplete");
         }
     }
 }
