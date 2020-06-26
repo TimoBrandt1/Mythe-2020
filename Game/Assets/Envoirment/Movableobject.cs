@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movableobject : MonoBehaviour
 {
+    private AudioSource thisAudioSource;
+    private AudioClip thisAudioClip;
     public GameObject InputEventTriggerObject;
     public GameObject OutputEventTriggerObject;
     private bool canMove = false;
@@ -17,6 +19,12 @@ public class Movableobject : MonoBehaviour
 
     private void Start()
     {
+        thisAudioSource = gameObject.GetComponent<AudioSource>();
+        thisAudioClip = thisAudioSource.clip;
+        if(thisAudioClip != null)
+        {
+            lerpspeed = 1/(thisAudioClip.length*0.75f);
+        }
         postionB = this.transform.position + targetPos;
         postionA = this.transform.position;
         EventTrigger inputEventTrigger = InputEventTriggerObject.GetComponent<EventTrigger>();
@@ -44,6 +52,10 @@ public class Movableobject : MonoBehaviour
     {
         if (transform.position == postionA)
         {
+            if (thisAudioClip != null)
+            {
+                thisAudioSource.Play();
+            }
             canMove = true;
         }
     }
@@ -51,6 +63,10 @@ public class Movableobject : MonoBehaviour
     {
         if (transform.position == postionB)
         {
+            if (thisAudioClip != null)
+            {
+                thisAudioSource.Play();
+            }
             canMove = true;
         }
     }

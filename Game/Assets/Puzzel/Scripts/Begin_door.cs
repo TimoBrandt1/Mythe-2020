@@ -5,8 +5,10 @@ using UnityEngine;
 public class Begin_door : MonoBehaviour
 {
     [SerializeField]private float currentTime;
-    [SerializeField]private float targetTime = 5;
+    [SerializeField]private float WaitTime = 5;
 
+    private AudioSource doorAudio;
+    private AudioClip doorClip;
     private bool canMove = false;
     private bool start = false;
     private Vector3 postionA;
@@ -19,16 +21,22 @@ public class Begin_door : MonoBehaviour
 
     private void Start()
     {
+        doorAudio = gameObject.GetComponent<AudioSource>();
+        doorClip = doorAudio.clip;
         postionB = this.transform.position + targetPos;
         postionA = this.transform.position;
+        lerpspeed = 1 / doorClip.length;
     }
     private void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= targetTime)
+        if (currentTime >= WaitTime)
         {
+
             start = true;
             canMove = true;
+            
+
         }
         if (start == true)
         {
@@ -36,12 +44,8 @@ public class Begin_door : MonoBehaviour
             {
                 if (transform.position == postionA)
                 {
-                    newPosition = postionB;
-                    
-                }
-                if (transform.position == postionB)
-                {
-                    newPosition = postionA;
+                    doorAudio.Play();
+                    newPosition = postionB; 
                 }
                 PositionChange();
             }
@@ -56,12 +60,7 @@ public class Begin_door : MonoBehaviour
         {
             canMove = false;
             t = 0f;
-            if (newPosition == postionB)
-            {
-                newPosition = postionA;
-                canMove = false;
-            }
-            else if (newPosition == postionA)
+            if (newPosition == postionA)
             {
                 newPosition = postionB;
                 canMove = false;

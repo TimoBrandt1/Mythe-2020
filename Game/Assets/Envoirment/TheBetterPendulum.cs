@@ -5,6 +5,7 @@ using UnityEngine;
 public class TheBetterPendulum : MonoBehaviour
 {
     private int SPEED;
+    private bool isSpinning = false;
     [SerializeField] private bool canRotateFull = false;
     [SerializeField] private bool canMove = false;
     public GameObject InputEventTriggerObject;
@@ -65,23 +66,29 @@ public class TheBetterPendulum : MonoBehaviour
     }
     private void InputEventTrigger(object sender, System.EventArgs e)
     {
-        if (canRotateFull)
+        if (isSpinning == false)
         {
-            SPEED = Random.Range(300, 800);
-            myMotor.targetVelocity = SPEED;
-            myJoint.motor = myMotor;
+            if (canRotateFull)
+            {
+                SPEED = Random.Range(300, 800);
+                myMotor.targetVelocity = SPEED;
+                myJoint.motor = myMotor;
+            }
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+            canMove = true;
         }
-        gameObject.GetComponent<Rigidbody>().useGravity = true;
-        canMove = true;
     }
     private void OutputEventTrigger(object sender, System.EventArgs e)
     {
-        if (canRotateFull)
+        if (isSpinning == true)
         {
-            myMotor.targetVelocity = SPEED - SPEED;
-            
+            if (canRotateFull)
+            {
+                myMotor.targetVelocity = SPEED - SPEED;
+
+            }
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            canMove = false;
         }
-        gameObject.GetComponent<Rigidbody>().useGravity = false;
-        canMove = false;
     }
 }

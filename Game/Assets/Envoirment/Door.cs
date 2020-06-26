@@ -13,14 +13,15 @@ public class Door : MonoBehaviour
     private Vector3 newPosition;
     private AudioSource thisAudio;
     private AudioClip thisAudioClip;
-    [SerializeField]private float lerpspeed;
+    [SerializeField]private float lerpTime;
     [SerializeField]private float t;
 
 
     private void Start()
     {
         thisAudio = gameObject.GetComponent<AudioSource>();
-        lerpspeed = 1/(thisAudio.clip.length/2);
+        thisAudioClip = thisAudio.clip;
+        lerpTime = 1/thisAudioClip.length;
         postionB = this.transform.position + targetPos;
         postionA = this.transform.position;
         EventTrigger inputEventTrigger = InputEventTriggerObject.GetComponent<EventTrigger>();
@@ -54,8 +55,8 @@ public class Door : MonoBehaviour
     }
     private void PositionChange()
     {
-        transform.position = Vector3.Lerp(transform.position, newPosition, lerpspeed * Time.deltaTime);
-        t = Mathf.Lerp(t, 1f, lerpspeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, newPosition, lerpTime * Time.deltaTime);
+        t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
         if (t > 0.95f)
         {
             t = 0f;
