@@ -44,7 +44,7 @@ public class PauzeMenu : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(0);
     }
     public void Quit()
     {
