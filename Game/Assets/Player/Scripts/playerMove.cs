@@ -8,6 +8,7 @@ public class playerMove : MonoBehaviour
     [SerializeField] private float _stationaryTurnSpeed = 180;
     [SerializeField] private float _moveSpeedMultiplier = 1f;
     [SerializeField] private float _groundCheckDistance = 0.1f;
+    [SerializeField] private AudioSource walkAudio;
 
     private PlayerClimb _PlayerClimb;
     private Animator _anim;
@@ -50,8 +51,10 @@ public class playerMove : MonoBehaviour
 
     public void Move(Vector3 move, bool jump)
     {
+        
         Vector3 vel = (move * _moveSpeedMultiplier) / Time.deltaTime;
-
+        walkAudio.pitch = 1 * _moveSpeedMultiplier;
+        walkAudio.Play();
         //zet de rigidbody content gelijk aan de vel vector
         vel.y = _rigidbody.velocity.y;
         _rigidbody.velocity = vel;

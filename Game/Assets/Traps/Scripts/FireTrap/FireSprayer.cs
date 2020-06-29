@@ -17,7 +17,7 @@ public class FireSprayer : MonoBehaviour
     {
         _myAudio = gameObject.GetComponent<AudioSource>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        _activationRange = 40f;
+        _activationRange = Random.Range(15,25);
     }
 
     // Update is called once per frame

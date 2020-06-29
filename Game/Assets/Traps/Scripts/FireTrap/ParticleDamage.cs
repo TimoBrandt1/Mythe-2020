@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ParticleDamage : MonoBehaviour
 {
+    [SerializeField] int damage = 5;
     private void OnParticleCollision(GameObject other)
     {
         if (other.tag == "Player")
         {
-            other.SendMessage("TakeDamage", 100);
+            other.SendMessage("TakeDamage", damage);
         }
     }
 }

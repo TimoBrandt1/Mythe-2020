@@ -10,7 +10,8 @@ public class WallMovement : MonoBehaviour
     //Floats were you can set the speed of the wall moving back and forward
     [SerializeField] private float forwardSpeed;
     [SerializeField] private float backwardSpeed;
-
+    [SerializeField] AudioSource myAudio;
+    [SerializeField] bool hasÁudio;
     private bool move = false;
     private Vector3 startPos;
 
@@ -39,6 +40,10 @@ public class WallMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, destination.position, forwardSpeed * Time.deltaTime);
             if (transform.position == destination.position)
             {
+                if (hasÁudio)
+                {
+                    myAudio.Play();
+                }
                 move = true;
             }
         }
