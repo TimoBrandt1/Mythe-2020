@@ -23,7 +23,7 @@ public class TextTrigger : PressurPlate
         {
             
             StartCoroutine(PassText());
-            Debug.Log("geef text door");
+            //Debug.Log("geef text door");
         }
     }
     private void OnTriggerExit(Collider other){ canSetText = false;}
@@ -33,7 +33,7 @@ public class TextTrigger : PressurPlate
         for (int i = 0; i < texts.Length;)
             {
                 textHandler.StartWriter(texts[i], timePerCharacter[i], cleanTime);
-                Debug.Log("gaat schrijven");
+                //Debug.Log("gaat schrijven");
                 yield return new WaitForSeconds((timePerCharacter[i]*texts[i].Length)+1+cleanTime);          
                 i++;  
             }

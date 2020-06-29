@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movableobject : MonoBehaviour
 {
+    [SerializeField] bool hasAudio;
     private AudioSource thisAudioSource;
     private AudioClip thisAudioClip;
     public GameObject InputEventTriggerObject;
@@ -19,11 +20,15 @@ public class Movableobject : MonoBehaviour
 
     private void Start()
     {
-        thisAudioSource = gameObject.GetComponent<AudioSource>();
-        thisAudioClip = thisAudioSource.clip;
-        if(thisAudioClip != null)
+        if (hasAudio)
         {
-            lerpspeed = 1/(thisAudioClip.length*0.75f);
+            thisAudioSource = gameObject.GetComponent<AudioSource>();
+            thisAudioClip = thisAudioSource.clip;
+            lerpspeed = 1 / (thisAudioClip.length * 0.5f);
+        }
+        else
+        {
+            lerpspeed = 5;
         }
         postionB = this.transform.position + targetPos;
         postionA = this.transform.position;

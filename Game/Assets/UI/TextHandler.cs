@@ -35,6 +35,7 @@ public class TextHandler : MonoBehaviour
     }
     private IEnumerator WriteText(string textToWrite, float timePerCharacter, float cleanText)
     {
+        talkingSound.pitch = talkingSound.pitch * (0.125f/timePerCharacter);
         isPLaying = true;
         textImage.SetActive(true);
         talkingSound.Play();
@@ -45,6 +46,7 @@ public class TextHandler : MonoBehaviour
             yield return new WaitForSeconds(timePerCharacter);
         }
         talkingSound.Stop();
+        talkingSound.pitch = 1;
         yield return new WaitForSeconds(cleanText);
         messageText.text = "";
         textImage.SetActive(false);
