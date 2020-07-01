@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class HG : MonoBehaviour
@@ -9,7 +10,8 @@ public class HG : MonoBehaviour
     public GameObject OutputEventTriggerObject;
     [SerializeField] private Rigidbody rb;
     [SerializeField] int waitingTime;
-    
+    [SerializeField] private Animator animator;
+
 
     private void Start()
     {
@@ -32,6 +34,9 @@ public class HG : MonoBehaviour
     {
         yield return new WaitForSeconds(waitingTime);
         rb.useGravity = true;
-
+        Time.timeScale = 0.1f;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Menu");
     }
 }
