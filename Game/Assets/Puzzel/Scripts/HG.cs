@@ -8,6 +8,7 @@ public class HG : MonoBehaviour
     public GameObject InputEventTriggerObject;
     public GameObject OutputEventTriggerObject;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] int waitingTime;
     
 
     private void Start()
@@ -20,7 +21,7 @@ public class HG : MonoBehaviour
     }
     private void InputEventTrigger_OnSpacePressed(object sender, System.EventArgs e)
     {
-        this.gameObject.SetActive(true);
+        StartCoroutine(DropHG());
     }
     private void OutputEventTrigger_OnSpacePressed(object sender, System.EventArgs e)
     {
@@ -29,7 +30,7 @@ public class HG : MonoBehaviour
 
     private IEnumerator DropHG()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(waitingTime);
         rb.useGravity = true;
 
     }
