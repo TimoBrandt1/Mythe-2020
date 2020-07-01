@@ -69,6 +69,7 @@ public class TextHandler : MonoBehaviour
     private IEnumerator WriteTextWithSound(string textToWrite, float timePerCharacter, float cleanText, AudioClip myclip, Sprite image)
     {
         //talkingSound.pitch = talkingSound.pitch * (0.125f/timePerCharacter);
+        Image.sprite = image;
         isPLaying = true;
         textImage.SetActive(true);
         talkingSound.clip = myclip;
@@ -80,7 +81,6 @@ public class TextHandler : MonoBehaviour
             messageText.text = currentText;
             yield return new WaitForSeconds(timePerCharacter);
         }
-        talkingSound.pitch = 1;
         yield return new WaitForSeconds(cleanText);
         messageText.text = "";
         textImage.SetActive(false);

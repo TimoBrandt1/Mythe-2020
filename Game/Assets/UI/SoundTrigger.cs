@@ -31,11 +31,11 @@ public class SoundTrigger : PressurPlate
     private IEnumerator PassText()
     {
 
-        for (int i = 0; i < texts.Length;)
+        for (int i = 0; i < texts.Length+1;)
             {
                 textHandler.StartWriterWithsound(texts[i], timePerCharacter[i], cleanTime,sounds[i], images[i]);
                 //Debug.Log("gaat schrijven");
-                yield return new WaitForSeconds((timePerCharacter[i]*texts[i].Length)+1+cleanTime);          
+                yield return new WaitForSeconds((sounds[i].length)+1+cleanTime);          
                 i++;  
             }
         }
