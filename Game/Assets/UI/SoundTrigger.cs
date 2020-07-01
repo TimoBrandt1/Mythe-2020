@@ -35,7 +35,7 @@ public class SoundTrigger : PressurPlate
             {
                 textHandler.StartWriterWithsound(texts[i], timePerCharacter[i], cleanTime,sounds[i], images[i]);
                 //Debug.Log("gaat schrijven");
-                yield return new WaitForSeconds((sounds[i].length)+1+cleanTime);          
+                yield return new WaitForSeconds((sounds[i].length)+cleanTime);          
                 i++;  
             }
         }
