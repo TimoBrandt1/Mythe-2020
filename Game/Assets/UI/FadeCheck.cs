@@ -12,6 +12,6 @@ public class FadeCheck : MonoBehaviour
 
     public void OnFadeToCompleteLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Level 3");
     }
 }
