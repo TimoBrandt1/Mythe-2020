@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EventLisener : MonoBehaviour
 {
+
     public GameObject InputEventTriggerObject;
     public GameObject OutputEventTriggerObject;
+    
 
     private void Start()
     {

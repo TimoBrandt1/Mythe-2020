@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EventTrigger : MonoBehaviour
 {
+
     public event EventHandler OnEventEnter;
     private void OnTriggerEnter(Collider other)
     {

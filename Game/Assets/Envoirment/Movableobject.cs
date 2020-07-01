@@ -24,7 +24,7 @@ public class Movableobject : MonoBehaviour
         {
             thisAudioSource = gameObject.GetComponent<AudioSource>();
             thisAudioClip = thisAudioSource.clip;
-            lerpspeed = 1 / (thisAudioClip.length * 0.5f);
+            lerpspeed = 1 / (thisAudioClip.length * 0.3f/thisAudioSource.pitch);
         }
         else
         {

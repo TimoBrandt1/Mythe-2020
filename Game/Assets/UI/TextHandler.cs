@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class TextHandler : MonoBehaviour
 {
+    
     [SerializeField] private AudioSource talkingSound;
     [SerializeField] private GameObject textImage;
+    [SerializeField] private Image Image;
     private Text messageText;
     private string currentText;
     private bool isPLaying = false;
@@ -22,20 +24,32 @@ public class TextHandler : MonoBehaviour
     {
     }
 
-    public void StartWriter(string textToWrite, float timePerCharacter, float cleanText)
+    public void StartWriter(string textToWrite, float timePerCharacter, float cleanText, Sprite image)
     {
         if (isPLaying == false)
         {
-            StartCoroutine(WriteText(textToWrite, timePerCharacter, cleanText));
+            StartCoroutine(WriteText(textToWrite, timePerCharacter, cleanText, image));
         }
         else
         {
             //textToSay.Add(new string[] { textToWrite});
         }
     }
-    private IEnumerator WriteText(string textToWrite, float timePerCharacter, float cleanText)
+    public void StartWriterWithsound(string textToWrite, float timePerCharacter, float cleanText, AudioClip myclip, Sprite image)
     {
-        talkingSound.pitch = talkingSound.pitch * (0.125f/timePerCharacter);
+        if (isPLaying == false)
+        {
+            StartCoroutine(WriteTextWithSound(textToWrite, timePerCharacter, cleanText, myclip,image));
+        }
+        else
+        {
+            //textToSay.Add(new string[] { textToWrite});
+        }
+    }
+    private IEnumerator WriteText(string textToWrite, float timePerCharacter, float cleanText, Sprite image)
+    {
+        //talkingSound.pitch = talkingSound.pitch * (0.125f/timePerCharacter);
+        Image.sprite = image;
         isPLaying = true;
         textImage.SetActive(true);
         talkingSound.Play();
@@ -46,6 +60,26 @@ public class TextHandler : MonoBehaviour
             yield return new WaitForSeconds(timePerCharacter);
         }
         talkingSound.Stop();
+        talkingSound.pitch = 1;
+        yield return new WaitForSeconds(cleanText);
+        messageText.text = "";
+        textImage.SetActive(false);
+        isPLaying = false;
+    }
+    private IEnumerator WriteTextWithSound(string textToWrite, float timePerCharacter, float cleanText, AudioClip myclip, Sprite image)
+    {
+        //talkingSound.pitch = talkingSound.pitch * (0.125f/timePerCharacter);
+        isPLaying = true;
+        textImage.SetActive(true);
+        talkingSound.clip = myclip;
+        timePerCharacter = (myclip.length -1)/ textToWrite.Length;
+        talkingSound.Play();
+        for (int i = 0; i < textToWrite.Length + 1; i++)
+        {
+            currentText = textToWrite.Substring(0, i);
+            messageText.text = currentText;
+            yield return new WaitForSeconds(timePerCharacter);
+        }
         talkingSound.pitch = 1;
         yield return new WaitForSeconds(cleanText);
         messageText.text = "";

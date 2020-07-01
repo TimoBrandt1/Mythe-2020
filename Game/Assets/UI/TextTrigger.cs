@@ -11,6 +11,7 @@ public class TextTrigger : PressurPlate
     [SerializeField] private string[] texts;
     [SerializeField] private float[] timePerCharacter;
     [SerializeField] private float cleanTime;
+    [SerializeField] private Sprite[] sprites;
     private bool nextText;
     private void Start()
     {
@@ -32,7 +33,7 @@ public class TextTrigger : PressurPlate
 
         for (int i = 0; i < texts.Length;)
             {
-                textHandler.StartWriter(texts[i], timePerCharacter[i], cleanTime);
+                textHandler.StartWriter(texts[i], timePerCharacter[i], cleanTime, sprites[i]);
                 //Debug.Log("gaat schrijven");
                 yield return new WaitForSeconds((timePerCharacter[i]*texts[i].Length)+1+cleanTime);          
                 i++;  
